@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.68d on Thu Jun 08 12:02:22 2017
+// Written by: Map P.68d on Thu Jun 08 15:35:16 2017
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -43,6 +43,7 @@ TIMEGRP clk_gen_clk_fx = BEL "vga_rst_n" BEL "vga_rst_delay_0" BEL
         "vga_ctrl_i/pixel_y_5" BEL "vga_ctrl_i/pixel_y_4" BEL
         "vga_ctrl_i/pixel_y_3" BEL "vga_ctrl_i/pixel_y_2" BEL
         "vga_ctrl_i/pixel_y_1" BEL "vga_ctrl_i/pixel_y_0" BEL
+        "vga_ctrl_i/phase_0" BEL "vga_ctrl_i/phase_1" BEL
         "vga_ctrl_i/pixel_y_d1_8" BEL "vga_ctrl_i/pixel_y_d1_7" BEL
         "vga_ctrl_i/pixel_y_d1_6" BEL "vga_ctrl_i/pixel_y_d1_5" BEL
         "vga_ctrl_i/pixel_y_d1_4" BEL "vga_ctrl_i/pixel_y_d1_3" BEL
@@ -52,27 +53,17 @@ TIMEGRP clk_gen_clk_fx = BEL "vga_rst_n" BEL "vga_rst_delay_0" BEL
         "vga_ctrl_i/pixel_x_d1_5" BEL "vga_ctrl_i/pixel_x_d1_4" BEL
         "vga_ctrl_i/vga_clk" BEL "vga_ctrl_i/n_sync" BEL "vga_ctrl_i/n_v_sync"
         BEL "vga_ctrl_i/n_blank" BEL "vga_ctrl_i/n_h_sync" BEL
-        "vga_ctrl_i/red_7" BEL "vga_ctrl_i/red_6" BEL "vga_ctrl_i/red_5" BEL
-        "vga_ctrl_i/red_4" BEL "vga_ctrl_i/red_3" BEL "vga_ctrl_i/blue_7" BEL
-        "vga_ctrl_i/blue_6" BEL "vga_ctrl_i/blue_5" BEL "vga_ctrl_i/blue_4"
-        BEL "fb_less_2d_gpu_i/test_cnt_3" BEL "fb_less_2d_gpu_i/test_cnt_2"
-        BEL "fb_less_2d_gpu_i/test_cnt_1" BEL "fb_less_2d_gpu_i/test_cnt_0"
-        BEL "fb_less_2d_gpu_i/rgb_o_23" BEL "fb_less_2d_gpu_i/rgb_o_22" BEL
-        "fb_less_2d_gpu_i/rgb_o_21" BEL "fb_less_2d_gpu_i/rgb_o_20" BEL
-        "fb_less_2d_gpu_i/rgb_o_7" BEL "fb_less_2d_gpu_i/rgb_o_6" BEL
-        "fb_less_2d_gpu_i/rgb_o_5" BEL "fb_less_2d_gpu_i/rgb_o_4" BEL
-        "fb_less_2d_gpu_i/rgb_o_3" BEL "fb_less_2d_gpu_i/pix_buf_draw_1_23"
-        BEL "fb_less_2d_gpu_i/pix_buf_draw_1_22" BEL
-        "fb_less_2d_gpu_i/pix_buf_draw_1_21" BEL
-        "fb_less_2d_gpu_i/pix_buf_draw_1_20" BEL
-        "fb_less_2d_gpu_i/pix_buf_draw_1_3" BEL
+        "vga_ctrl_i/blue_7" BEL "vga_ctrl_i/blue_6" BEL
+        "fb_less_2d_gpu_i/test_cnt_1" BEL "fb_less_2d_gpu_i/test_cnt_0" BEL
+        "fb_less_2d_gpu_i/rgb_o_23" BEL "fb_less_2d_gpu_i/rgb_o_22" BEL
+        "fb_less_2d_gpu_i/pix_buf_draw_0_23" BEL
+        "fb_less_2d_gpu_i/pix_buf_draw_0_22" BEL "vga_ctrl_i/pixel_x_0" BEL
         "fb_less_2d_gpu_i/pix_buf_draw_empty_and_ready" BEL
-        "vga_ctrl_i/pixel_x_0" BEL "vga_ctrl_i/phase_0" BEL
-        "vga_ctrl_i/phase_1" BEL "vga_ctrl_i/pixel_x_9" BEL
-        "vga_ctrl_i/pixel_x_8" BEL "vga_ctrl_i/pixel_x_6" BEL
-        "vga_ctrl_i/pixel_x_5" BEL "vga_ctrl_i/pixel_x_7" BEL
-        "vga_ctrl_i/pixel_x_3" BEL "vga_ctrl_i/pixel_x_2" BEL
-        "vga_ctrl_i/pixel_x_4" BEL "vga_ctrl_i/pixel_x_1";
+        "vga_ctrl_i/pixel_x_9" BEL "vga_ctrl_i/pixel_x_8" BEL
+        "vga_ctrl_i/pixel_x_6" BEL "vga_ctrl_i/pixel_x_5" BEL
+        "vga_ctrl_i/pixel_x_7" BEL "vga_ctrl_i/pixel_x_3" BEL
+        "vga_ctrl_i/pixel_x_2" BEL "vga_ctrl_i/pixel_x_4" BEL
+        "vga_ctrl_i/pixel_x_1";
 PIN SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0> = BEL "SP6_BUFIO_INSERT_ML_BUFIO2_0"
         PINNAME DIVCLK;
 PIN clk_gen/dcm_24MHz_to_100MHz_pins<3> = BEL "clk_gen/dcm_24MHz_to_100MHz"

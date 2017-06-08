@@ -229,7 +229,7 @@ architecture Behavioral of fb_less_2d_gpu is
 	end component reg;
 
 	
-	signal test_cnt : unsigned(2 downto 0);
+	signal test_cnt : unsigned(1 downto 0);
 	
 begin
 	
@@ -832,16 +832,14 @@ begin
 			test_cnt <= (others => '0');
 		elsif rising_edge(clk_i) then
 			if pix_buf_draw_empty_and_ready = '1' then
-				if test_cnt = 4-1 then
-					test_cnt <= (others => '0');
-				else
-					test_cnt <= test_cnt + 1;
-				end if;
+				test_cnt <= test_cnt + 1;
 			end if;
 		end if;
 	end process;
 	T1: for t in 0 to TILE_LINE-1 generate
-		pix_buf_render(t) <= (std_logic_vector(test_cnt) & std_logic_vector(to_unsigned(t, 5)) & x"0000");
+		--pix_buf_render(t) <= x"0000ff" when test_cnt(0) = '0' else x"ff0000"; -- work
+		pix_buf_render(t) <= (std_logic_vector(test_cnt) & "000000" & x"0000");
+		--pix_buf_render(t) <= (std_logic_vector(test_cnt) & std_logic_vector(to_unsigned(t, 5)) & x"0000");
 	end generate T1;
 	pix_buf_render_full_and_valid <= '1';
 	
@@ -874,7 +872,9 @@ begin
 				
 				-- Demand new line.
 				if pix_buf_draw_idx = TILE_LINE-1 then
-					pix_buf_draw_empty_and_ready <= '1';
+					if pixel_col_i < 640 then
+						pix_buf_draw_empty_and_ready <= '1';
+					end if;
 				end if;
 			end if;
 		end if;
