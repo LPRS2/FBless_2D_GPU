@@ -52,6 +52,18 @@ BEGIN
 		wait for clk_period/2;
 	end process;
 	
+	process
+	begin
+		wait until rst_n_i = '1';
+		wait for clk_period*100;
+		
+		while true loop
+			wait for clk_period;
+			phase_i <= phase_i + 1;
+		end loop;
+		
+	end process;
+	
 
 
 	tb : PROCESS

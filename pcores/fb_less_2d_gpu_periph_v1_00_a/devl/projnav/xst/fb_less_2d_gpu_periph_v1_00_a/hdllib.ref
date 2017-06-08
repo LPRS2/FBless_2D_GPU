@@ -1,4 +1,12 @@
-AR fb_less_2d_gpu behavioral D:/Sabac_i_Radenkovic/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/fb_less_2d_gpu.vhd sub00/vhpl03 1496297788
-EN fb_less_2d_gpu NULL D:/Sabac_i_Radenkovic/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/fb_less_2d_gpu.vhd sub00/vhpl02 1496297787
-EN ram NULL D:/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/ram.vhd sub00/vhpl00 1495971179
-AR ram arch D:/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/ram.vhd sub00/vhpl01 1495971180
+EN clk_gen_100mhz NULL C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/clk_gen_100MHz_e.vhd sub00/vhpl06 1496912120
+AR reg arch_reg C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/reg.vhd sub00/vhpl05 1496912119
+AR clk_gen_100mhz arch_v1 C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/clk_gen_100MHz_a.vhd sub00/vhpl11 1496912127
+AR fb_less_2d_gpu behavioral C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/fb_less_2d_gpu.vhd sub00/vhpl03 1496912123
+EN vga_ctrl NULL C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/vga_ctrl_e.vhd sub00/vhpl07 1496912121
+EN fb_less_2d_gpu NULL C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/fb_less_2d_gpu.vhd sub00/vhpl02 1496912122
+EN fb_less_2d_gpu_standalone NULL C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/fb_less_2d_gpu_standalone.vhd sub00/vhpl09 1496912125
+AR fb_less_2d_gpu_standalone imp C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/fb_less_2d_gpu_standalone.vhd sub00/vhpl10 1496912126
+EN ram NULL C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/ram.vhd sub00/vhpl00 1496912116
+AR ram arch C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/ram.vhd sub00/vhpl01 1496912117
+EN reg NULL C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/reg.vhd sub00/vhpl04 1496912118
+AR vga_ctrl arch_v1 C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/vga_ctrl_a.vhd sub00/vhpl08 1496912124

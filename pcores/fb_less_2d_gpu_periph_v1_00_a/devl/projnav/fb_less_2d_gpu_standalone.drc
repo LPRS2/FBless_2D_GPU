@@ -1,24 +1,11 @@
 Release 14.6 Drc P.68d (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Wed Jun 07 09:57:29 2017
+Thu Jun 08 12:02:39 2017
 
 drc -z fb_less_2d_gpu_standalone.ncd fb_less_2d_gpu_standalone.pcf
 
-WARNING:PhysDesignRules:367 - The signal <fb_less_2d_gpu_i/Mram_iw_s2_RAMD_D1_O>
-   is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <fb_less_2d_gpu_i/Mram_w_s2_RAMD_D1_O>
-   is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <fb_less_2d_gpu_i/Mram_m_s1_RAMD_D1_O>
-   is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <fb_less_2d_gpu_i/Mram_iw_s1_RAMD_D1_O>
-   is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <fb_less_2d_gpu_i/Mram_w_s1_RAMD_D1_O>
-   is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <fb_less_2d_gpu_i/Mram_m_s2_RAMD_D1_O>
-   is incomplete. The signal does not drive any load pins in the design.
 INFO:PhysDesignRules:1861 - To achieve optimal frequency synthesis performance
    with the CLKFX and CLKFX180 outputs of the DCM comp
    clk_gen/dcm_24MHz_to_100MHz, consult the device Data Sheet.
-DRC detected 0 errors and 6 warnings.  Please see the previously displayed
-individual error or warning messages for more details.
+DRC detected 0 errors and 0 warnings.

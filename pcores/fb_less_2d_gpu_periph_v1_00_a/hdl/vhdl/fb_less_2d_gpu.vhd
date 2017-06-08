@@ -49,6 +49,7 @@ entity fb_less_2d_gpu is
 		pixel_row_i    : in  unsigned(8 downto 0);
 		pixel_col_i    : in  unsigned(9 downto 0);
 		phase_i        : in  unsigned(1 downto 0);
+		vga_rst_n_i    : std_logic;
 		rgb_o          : out std_logic_vector(COLOR_WIDTH-1 downto 0)  -- Value of RGB color
    );
 end entity fb_less_2d_gpu;
@@ -227,6 +228,9 @@ architecture Behavioral of fb_less_2d_gpu is
 	);
 	end component reg;
 
+	
+	signal test_cnt : unsigned(3 downto 0);
+	signal render_pix : std_logic_vector(23 downto 0);
 	
 begin
 	
@@ -567,54 +571,20 @@ begin
 				--end if;
 		end process;
 		
-		FILL_RENDER_BUFFER: 
-			for i in 0 to TILE_LINE-1 generate
-				pix_buf_render(i)(23 downto 16) <= acc_b_r(i);
-				pix_buf_render(i)(15 downto 8) <= acc_g_r(i);
-				pix_buf_render(i)(7 downto 0) <= acc_r_r(i);
-			end generate FILL_RENDER_BUFFER;
+--TODO Commented for debugging.
+--	FILL_RENDER_BUFFER: 
+--	for i in 0 to TILE_LINE-1 generate
+--		pix_buf_render(i)(23 downto 16) <= acc_b_r(i);
+--		pix_buf_render(i)(15 downto 8) <= acc_g_r(i);
+--		pix_buf_render(i)(7 downto 0) <= acc_r_r(i);
+--	end generate FILL_RENDER_BUFFER;
 			
-			valid_render_col <= unsigned(tx_r(4 downto 0)) & "00000" when current_state_s = CHECK_OPAQUE or current_state_s = WRITE_PIXEL
-									else "1111111111"; --640 +
-			valid_render_row <= unsigned(y_r(8 downto 0)) when current_state_s = CHECK_OPAQUE OR current_state_s = WRITE_PIXEL
-							else "111111111"; --480 +
-			
---			pix_buf_render(1)(23 downto 16) <= not(acc_b_s(0));
---			pix_buf_render(2)(23 downto 16) <= not(acc_b_s(0));
---			pix_buf_render(3)(23 downto 16) <= not(acc_b_s(0));
---			pix_buf_render(4)(23 downto 16) <= not(acc_b_s(0));
---			pix_buf_render(5)(23 downto 16) <= not(acc_b_s(0));
---			pix_buf_render(6)(23 downto 16) <= not(acc_b_s(0));
---			pix_buf_render(7)(23 downto 16) <= not(acc_b_s(0));
---			pix_buf_render(8)(23 downto 16) <= not(acc_b_s(0));
---			pix_buf_render(9)(23 downto 16) <= not(acc_b_s(0));
---			pix_buf_render(10)(23 downto 16) <= not(acc_b_s(0));
---			pix_buf_render(11)(23 downto 16) <= not(acc_b_s(0));
---			pix_buf_render(12)(23 downto 16) <= not(acc_b_s(0));
---			pix_buf_render(13)(23 downto 16) <= not(acc_b_s(0));
---			pix_buf_render(14)(23 downto 16) <= not(acc_b_s(0));
---			pix_buf_render(15)(23 downto 16) <= not(acc_b_s(0));
---			pix_buf_render(16)(23 downto 16) <= not(acc_b_s(0));
---			pix_buf_render(17)(23 downto 16) <= not(acc_b_s(0));
---			pix_buf_render(18)(23 downto 16) <= not(acc_b_s(0));
---			pix_buf_render(19)(23 downto 16) <= acc_b_r(18);
---			pix_buf_render(20)(23 downto 16) <= acc_b_r(19);
---			pix_buf_render(21)(23 downto 16) <= acc_b_r(20);
---			pix_buf_render(22)(23 downto 16) <= acc_b_r(21);
---			pix_buf_render(23)(23 downto 16) <= acc_b_r(22);
---			pix_buf_render(24)(23 downto 16) <= acc_b_r(23);
---			pix_buf_render(25)(23 downto 16) <= acc_b_r(24);
---			pix_buf_render(26)(23 downto 16) <= acc_b_r(25);
---			pix_buf_render(27)(23 downto 16) <= acc_b_r(26);
---			pix_buf_render(28)(23 downto 16) <= acc_b_r(27);
---			pix_buf_render(29)(23 downto 16) <= acc_b_r(28);
---			pix_buf_render(30)(23 downto 16) <= acc_b_r(29);
---			pix_buf_render(31)(23 downto 16) <= acc_b_r(30);
---			pix_buf_render(0)(23 downto 16) <= acc_b_r(31);
---		
---				
-----		
---		
+	valid_render_col <= unsigned(tx_r(4 downto 0)) & "00000" when current_state_s = CHECK_OPAQUE or current_state_s = WRITE_PIXEL
+							else "1111111111"; --640 +
+	valid_render_row <= unsigned(y_r(8 downto 0)) when current_state_s = CHECK_OPAQUE OR current_state_s = WRITE_PIXEL
+					else "111111111"; --480 +
+
+
 		--Custom type registers--
 		process(clk_i) begin
 			if rising_edge(clk_i) then
@@ -851,16 +821,32 @@ begin
 	);
 
 	
+--TODO Commented for debugging.
+--	pix_buf_render_full_and_valid <= '1' when pixel_col_i = valid_render_col
+--							and pixel_row_i = valid_render_row
+--				else '0';
+
+--TODO Debug.
+	process(clk_i, vga_rst_n_i)
+	begin
+		if vga_rst_n_i = '0' then
+			test_cnt <= x"0";
+		elsif rising_edge(clk_i) then
+			if pix_buf_draw_empty_and_ready = '1' then
+				test_cnt <= test_cnt + 1;
+			end if;
+		end if;
+	end process;
+	T1: for t in 0 to TILE_LINE-1 generate
+		pix_buf_render(t) <= (std_logic_vector(test_cnt) & x"000" & std_logic_vector(to_unsigned(t, 5)) & "000");
+	end generate T1;
+	pix_buf_render_full_and_valid <= '1';
+	
 
 	pix_buf_draw_idx <= pixel_col_i(TILE_BITS-1 downto 0);
-	
-	pix_buf_render_full_and_valid <= '1' when pixel_col_i = valid_render_col
-							and pixel_row_i = valid_render_row
-				else '0';
-	
-	process(clk_i, rst_n_i)
+	process(clk_i, vga_rst_n_i)
 	begin
-		if rst_n_i = '0' then
+		if vga_rst_n_i = '0' then
 			pix_buf_draw <= (others => (others => '0'));
 			pix_buf_draw_empty_and_ready <= '1';
 			
@@ -873,21 +859,24 @@ begin
 				pix_buf_draw_empty_and_ready <= '0';
 			end if;
 			
+			-- VGA ctrl took data in phase 3 and 0. At phase 0 we give data and in phase 1 we demand new line.
 			if phase_i = 0  then
-				if pix_buf_draw_empty_and_ready = '1' then
+				-- For debugging.
+				if pix_buf_render_full_and_valid = '0' and pix_buf_draw_empty_and_ready = '1' then
 					pix_buf_draw_error <= '1';
 				end if;
 			
+				-- Give data buffer.
 				rgb_o <= pix_buf_draw(to_integer(pix_buf_draw_idx));
 				
+				-- Demand new line.
 				if pix_buf_draw_idx = TILE_LINE-1 then
 					pix_buf_draw_empty_and_ready <= '1';
-					pix_buf_draw <= (others => (others => '0'));
 				end if;
 			end if;
 		end if;
 	end process;
-	
+		
 	
 	
 end Behavioral;

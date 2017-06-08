@@ -8,54 +8,6 @@
 --
 -- TYPICALLY, THE ONLY ACCEPTABLE CHANGES INVOLVE ADDING NEW
 -- PORTS AND GENERICS THAT GET PASSED THROUGH TO THE INSTANTIATION
--- OF THE USER_LOGIC ENTITY.
-------------------------------------------------------------------------------
---
--- ***************************************************************************
--- ** Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.            **
--- **                                                                       **
--- ** Xilinx, Inc.                                                          **
--- ** XILINX IS PROVIDING THIS DESIGN, CODE, OR INFORMATION "AS IS"         **
--- ** AS A COURTESY TO YOU, SOLELY FOR USE IN DEVELOPING PROGRAMS AND       **
--- ** SOLUTIONS FOR XILINX DEVICES.  BY PROVIDING THIS DESIGN, CODE,        **
--- ** OR INFORMATION AS ONE POSSIBLE IMPLEMENTATION OF THIS FEATURE,        **
--- ** APPLICATION OR STANDARD, XILINX IS MAKING NO REPRESENTATION           **
--- ** THAT THIS IMPLEMENTATION IS FREE FROM ANY CLAIMS OF INFRINGEMENT,     **
--- ** AND YOU ARE RESPONSIBLE FOR OBTAINING ANY RIGHTS YOU MAY REQUIRE      **
--- ** FOR YOUR IMPLEMENTATION.  XILINX EXPRESSLY DISCLAIMS ANY              **
--- ** WARRANTY WHATSOEVER WITH RESPECT TO THE ADEQUACY OF THE               **
--- ** IMPLEMENTATION, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OR        **
--- ** REPRESENTATIONS THAT THIS IMPLEMENTATION IS FREE FROM CLAIMS OF       **
--- ** INFRINGEMENT, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS       **
--- ** FOR A PARTICULAR PURPOSE.                                             **
--- **                                                                       **
--- ***************************************************************************
---
-------------------------------------------------------------------------------
--- Filename:          battle_city_periph.vhd
--- Version:           1.01.a
--- Description:       Top level design, instantiates library components and user logic.
--- Date:              Mon Jul 06 14:45:41 2015 (by Create and Import Peripheral Wizard)
--- VHDL Standard:     VHDL'93
-------------------------------------------------------------------------------
--- Naming Conventions:
---   active low signals:                    "*_n"
---   clock signals:                         "clk", "clk_div#", "clk_#x"
---   reset signals:                         "rst", "rst_n"
---   generics:                              "C_*"
---   user defined types:                    "*_TYPE"
---   state machine next state:              "*_ns"
---   state machine current state:           "*_cs"
---   combinatorial signals:                 "*_com"
---   pipelined or register delay signals:   "*_d#"
---   counter signals:                       "*cnt*"
---   clock enable signals:                  "*_ce"
---   internal version of output port:       "*_i"
---   device pins:                           "*_pin"
---   ports:                                 "- Names begin with Uppercase"
---   processes:                             "*_PROCESS"
---   component instantiations:              "<ENTITY_>I_<#|FUNC>"
-------------------------------------------------------------------------------
 
 
 library ieee;
@@ -65,44 +17,6 @@ library ieee;
 library fb_less_2d_gpu_periph_v1_00_a;
 	use fb_less_2d_gpu_periph_v1_00_a.all;
 
-------------------------------------------------------------------------------
--- Entity section
-------------------------------------------------------------------------------
--- Definition of Generics:
---   C_S_AXI_DATA_WIDTH           -- AXI4LITE slave: Data width
---   C_S_AXI_ADDR_WIDTH           -- AXI4LITE slave: Address Width
---   C_S_AXI_MIN_SIZE             -- AXI4LITE slave: Min Size
---   C_USE_WSTRB                  -- AXI4LITE slave: Write Strobe
---   C_DPHASE_TIMEOUT             -- AXI4LITE slave: Data Phase Timeout
---   C_BASEADDR                   -- AXI4LITE slave: base address
---   C_HIGHADDR                   -- AXI4LITE slave: high address
---   C_FAMILY                     -- FPGA Family
---   C_NUM_REG                    -- Number of software accessible registers
---   C_NUM_MEM                    -- Number of address-ranges
---   C_SLV_AWIDTH                 -- Slave interface address bus width
---   C_SLV_DWIDTH                 -- Slave interface data bus width
---
--- Definition of Ports:
---   S_AXI_ACLK                   -- AXI4LITE slave: Clock 
---   S_AXI_ARESETN                -- AXI4LITE slave: Reset
---   S_AXI_AWADDR                 -- AXI4LITE slave: Write address
---   S_AXI_AWVALID                -- AXI4LITE slave: Write address valid
---   S_AXI_WDATA                  -- AXI4LITE slave: Write data
---   S_AXI_WSTRB                  -- AXI4LITE slave: Write strobe
---   S_AXI_WVALID                 -- AXI4LITE slave: Write data valid
---   S_AXI_BREADY                 -- AXI4LITE slave: Response ready
---   S_AXI_ARADDR                 -- AXI4LITE slave: Read address
---   S_AXI_ARVALID                -- AXI4LITE slave: Read address valid
---   S_AXI_RREADY                 -- AXI4LITE slave: Read data ready
---   S_AXI_ARREADY                -- AXI4LITE slave: read addres ready
---   S_AXI_RDATA                  -- AXI4LITE slave: Read data
---   S_AXI_RRESP                  -- AXI4LITE slave: Read data response
---   S_AXI_RVALID                 -- AXI4LITE slave: Read data valid
---   S_AXI_WREADY                 -- AXI4LITE slave: Write data ready
---   S_AXI_BRESP                  -- AXI4LITE slave: Response
---   S_AXI_BVALID                 -- AXI4LITE slave: Resonse valid
---   S_AXI_AWREADY                -- AXI4LITE slave: Wrte address ready
-------------------------------------------------------------------------------
 
 entity fb_less_2d_gpu_standalone is
   port
@@ -145,13 +59,30 @@ architecture IMP of fb_less_2d_gpu_standalone is
 	signal bus_data            : std_logic_vector(31 downto 0);
 	signal bus_we              : std_logic;
 	
+	signal vga_rst_n : std_logic;
+	signal vga_rst_delay : unsigned(7 downto 0);
+	
 begin
+
+	process(clk_100MHz, n_reset)
+	begin
+		if n_reset = '0' then
+			vga_rst_n <= '0';
+			vga_rst_delay <= (others => '0');
+		elsif rising_edge(clk_100MHz) then
+			if vga_rst_delay = 100 then
+				vga_rst_n <= '1';
+			else
+				vga_rst_delay <= vga_rst_delay + 1;
+			end if;
+		end if;
+	end process;
 
 	vga_ctrl_i : entity vga_ctrl
 		port map
 		(
 			i_clk_100MHz   => clk_100MHz,
-			in_reset       => n_reset,
+			in_reset       => vga_rst_n,
 			
 			o_phase			=> phase_s,
 			o_pixel_x		=> pixel_x_s,
@@ -182,6 +113,7 @@ begin
 			bus_data_i		=> bus_data,
 			bus_we_i			=> bus_we,
 			phase_i			=> phase_s,
+			vga_rst_n_i    => vga_rst_n,
 			rgb_o				=> rgb_s
 		);
     -- Same as in battle_city_periph ABOVE THIS LINE ------------------

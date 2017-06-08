@@ -6,8 +6,8 @@ Command Line: C:\Xilinx\14.6\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe
 xc6slx45-fgg676-2 fb_less_2d_gpu_standalone.ngc fb_less_2d_gpu_standalone.ngd
 
 Reading NGO file
-"D:/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/fb_less_2d_g
-pu_standalone.ngc" ...
+"C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/p
+rojnav/fb_less_2d_gpu_standalone.ngc" ...
 Gathering constraint information from source properties...
 Done.
 
@@ -42,10 +42,10 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:   1
 
-Total memory usage is 190592 kilobytes
+Total memory usage is 162144 kilobytes
 
 Writing NGD file "fb_less_2d_gpu_standalone.ngd" ...
-Total REAL time to NGDBUILD completion:  16 sec
-Total CPU time to NGDBUILD completion:   14 sec
+Total REAL time to NGDBUILD completion:  2 sec
+Total CPU time to NGDBUILD completion:   2 sec
 
 Writing NGDBUILD log file "fb_less_2d_gpu_standalone.bld"...

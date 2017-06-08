@@ -1,12 +1,17 @@
-Running: C:\Xilinx\14.6\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib secureip -o D:/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/testbench_isim_beh.exe -prj D:/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/testbench_beh.prj fb_less_2d_gpu_periph_v1_00_a.testbench 
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "secureip" -o "C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/fb_less_2d_gpu_standalone_tb_isim_beh.exe" -prj "C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/fb_less_2d_gpu_standalone_tb_beh.prj" "fb_less_2d_gpu_periph_v1_00_a.fb_less_2d_gpu_standalone_tb" 
 ISim P.68d (signature 0x7708f090)
-Number of CPUs detected in this system: 4
-Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
 Determining compilation order of HDL files
-Parsing VHDL file "D:/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/ram.vhd" into library fb_less_2d_gpu_periph_v1_00_a
-Parsing VHDL file "D:/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/reg.vhd" into library fb_less_2d_gpu_periph_v1_00_a
-Parsing VHDL file "D:/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/fb_less_2d_gpu.vhd" into library fb_less_2d_gpu_periph_v1_00_a
-Parsing VHDL file "D:/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../sim/fb_less_2d_gpu_tb.vhd" into library fb_less_2d_gpu_periph_v1_00_a
+Parsing VHDL file "C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/vga_ctrl_e.vhd" into library fb_less_2d_gpu_periph_v1_00_a
+Parsing VHDL file "C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/ram.vhd" into library fb_less_2d_gpu_periph_v1_00_a
+Parsing VHDL file "C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/clk_gen_100MHz_e.vhd" into library fb_less_2d_gpu_periph_v1_00_a
+Parsing VHDL file "C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/reg.vhd" into library fb_less_2d_gpu_periph_v1_00_a
+Parsing VHDL file "C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/vga_ctrl_a.vhd" into library fb_less_2d_gpu_periph_v1_00_a
+Parsing VHDL file "C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/fb_less_2d_gpu.vhd" into library fb_less_2d_gpu_periph_v1_00_a
+Parsing VHDL file "C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/clk_gen_100MHz_a.vhd" into library fb_less_2d_gpu_periph_v1_00_a
+Parsing VHDL file "C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../hdl/vhdl/fb_less_2d_gpu_standalone.vhd" into library fb_less_2d_gpu_periph_v1_00_a
+Parsing VHDL file "C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/../../sim/fb_less_2d_gpu_standalone_tb.vhd" into library fb_less_2d_gpu_periph_v1_00_a
 Starting static elaboration
 Completed static elaboration
 Compiling package standard
@@ -14,6 +19,7 @@ Compiling package std_logic_1164
 Compiling package numeric_std
 Compiling package std_logic_arith
 Compiling package std_logic_unsigned
+Compiling architecture arch_v1 of entity vga_ctrl [vga_ctrl_default]
 Compiling architecture arch of entity ram [\ram(32,13)\]
 Compiling architecture arch_reg of entity reg [\reg(32,0)\]
 Compiling architecture arch_reg of entity reg [\reg(16,0)\]
@@ -21,10 +27,24 @@ Compiling architecture arch_reg of entity reg [\reg(2,0)\]
 Compiling architecture arch_reg of entity reg [\reg(8,0)\]
 Compiling architecture arch_reg of entity reg [\reg(1,0)\]
 Compiling architecture behavioral of entity fb_less_2d_gpu [fb_less_2d_gpu_default]
-Compiling architecture behavior of entity testbench
+Compiling package vcomponents
+Compiling package textio
+Compiling package vital_timing
+Compiling package vital_primitives
+Compiling package vpkg
+Compiling architecture ibufg_v of entity IBUFG [\IBUFG("DONT_CARE","0",true,"DEF...]
+Compiling architecture dcm_sp_clock_divide_by_2_v of entity dcm_sp_clock_divide_by_2 [dcm_sp_clock_divide_by_2_default]
+Compiling architecture dcm_sp_maximum_period_check_v of entity dcm_sp_maximum_period_check [\dcm_sp_maximum_period_check("*"...]
+Compiling architecture dcm_sp_maximum_period_check_v of entity dcm_sp_maximum_period_check [\dcm_sp_maximum_period_check("*"...]
+Compiling architecture dcm_sp_clock_lost_v of entity dcm_sp_clock_lost [dcm_sp_clock_lost_default]
+Compiling architecture dcm_sp_v of entity DCM_SP [\DCM_SP(true,"*",true,false,2.0,...]
+Compiling architecture bufg_v of entity BUFG [bufg_default]
+Compiling architecture arch_v1 of entity clk_gen_100MHz [clk_gen_100mhz_default]
+Compiling architecture imp of entity fb_less_2d_gpu_standalone [fb_less_2d_gpu_standalone_defaul...]
+Compiling architecture behavior of entity fb_less_2d_gpu_standalone_tb
 Time Resolution for simulation is 1ps.
-Waiting for 5 sub-compilation(s) to finish...
-Compiled 20 VHDL Units
-Built simulation executable D:/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/testbench_isim_beh.exe
-Fuse Memory Usage: 39548 KB
-Fuse CPU Usage: 1731 ms
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 45 VHDL Units
+Built simulation executable C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/devl/projnav/fb_less_2d_gpu_standalone_tb_isim_beh.exe
+Fuse Memory Usage: 60572 KB
+Fuse CPU Usage: 748 ms
