@@ -12,7 +12,7 @@
          <ClosedNode>/fb_less_2d_gpu - Behavioral D:|djole|FBless_2D_GPU|pcores|fb_less_2d_gpu_periph_v1_00_a|devl|projnav|fb_less_2d_gpu.vhd</ClosedNode>
          <ClosedNode>/fb_less_2d_gpu_periph - IMP D:|FBless_2D_GPU|pcores|fb_less_2d_gpu_periph_v1_00_a|hdl|vhdl|fb_less_2d_gpu_periph.vhd</ClosedNode>
          <ClosedNode>/fb_less_2d_gpu_periph - IMP D:|djole|FBless_2D_GPU|pcores|fb_less_2d_gpu_periph_v1_00_a|hdl|vhdl|fb_less_2d_gpu_periph.vhd/AXI_LITE_IPIF_I - axi_lite_ipif - imp</ClosedNode>
-         <ClosedNode>/fb_less_2d_gpu_standalone - IMP C:|materija|DP-7_2015|FBless_2D_GPU|pcores|fb_less_2d_gpu_periph_v1_00_a|hdl|vhdl|fb_less_2d_gpu_standalone.vhd</ClosedNode>
+         <ClosedNode>/fb_less_2d_gpu_standalone - IMP C:|materija|DP-7_2015|FBless_2D_GPU|pcores|fb_less_2d_gpu_periph_v1_00_a|hdl|vhdl|fb_less_2d_gpu_standalone.vhd/fb_less_2d_gpu_i - fb_less_2d_gpu - Behavioral</ClosedNode>
          <ClosedNode>/fb_less_2d_gpu_standalone - IMP D:|FBless_2D_GPU|pcores|fb_less_2d_gpu_periph_v1_00_a|devl|projnav|fb_less_2d_gpu_standalone.vhd</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
@@ -20,7 +20,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001b2000000020000000000000000000000000200000064ffffffff000000810000000300000002000001b20000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001bc000000020000000000000000000000000200000064ffffffff000000810000000300000002000001bc0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
       <CurrentItem>fb_less_2d_gpu_standalone - IMP (C:/materija/DP-7_2015/FBless_2D_GPU/pcores/fb_less_2d_gpu_periph_v1_00_a/hdl/vhdl/fb_less_2d_gpu_standalone.vhd)</CurrentItem>
    </ItemView>
@@ -135,13 +135,13 @@
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="PostRouteSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>

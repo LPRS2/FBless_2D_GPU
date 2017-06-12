@@ -18,7 +18,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="16" />
+   <WVObjectSize size="24" />
    <wvobject fp_name="/fb_less_2d_gpu_standalone_tb/clk_24mhz_i" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk_24mhz_i</obj_property>
       <obj_property name="ObjectShortName">clk_24mhz_i</obj_property>
@@ -81,12 +81,52 @@
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/fb_less_2d_gpu_standalone_tb/uut/fb_less_2d_gpu_i/test_cnt" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">test_cnt[3:0]</obj_property>
-      <obj_property name="ObjectShortName">test_cnt[3:0]</obj_property>
+      <obj_property name="ElementShortName">test_cnt[1:0]</obj_property>
+      <obj_property name="ObjectShortName">test_cnt[1:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/fb_less_2d_gpu_standalone_tb/uut/fb_less_2d_gpu_i/rgb_o" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">rgb_o[23:0]</obj_property>
       <obj_property name="ObjectShortName">rgb_o[23:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fb_less_2d_gpu_standalone_tb/uut/fb_less_2d_gpu_i/valid_render_col" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">valid_render_col[9:0]</obj_property>
+      <obj_property name="ObjectShortName">valid_render_col[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fb_less_2d_gpu_standalone_tb/uut/fb_less_2d_gpu_i/valid_render_row" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">valid_render_row[8:0]</obj_property>
+      <obj_property name="ObjectShortName">valid_render_row[8:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fb_less_2d_gpu_standalone_tb/uut/fb_less_2d_gpu_i/current_state_s" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">current_state_s</obj_property>
+      <obj_property name="ObjectShortName">current_state_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fb_less_2d_gpu_standalone_tb/uut/fb_less_2d_gpu_i/ix_r" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ix_r[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ix_r[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fb_less_2d_gpu_standalone_tb/uut/fb_less_2d_gpu_i/acc_r_r" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">acc_r_r[0:31]</obj_property>
+      <obj_property name="ObjectShortName">acc_r_r[0:31]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fb_less_2d_gpu_standalone_tb/uut/fb_less_2d_gpu_i/acc_g_r" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">acc_g_r[0:31]</obj_property>
+      <obj_property name="ObjectShortName">acc_g_r[0:31]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fb_less_2d_gpu_standalone_tb/uut/fb_less_2d_gpu_i/acc_b_r" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">acc_b_r[0:31]</obj_property>
+      <obj_property name="ObjectShortName">acc_b_r[0:31]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fb_less_2d_gpu_standalone_tb/uut/fb_less_2d_gpu_i/pix_buf_render" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pix_buf_render[0:31]</obj_property>
+      <obj_property name="ObjectShortName">pix_buf_render[0:31]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
 </wave_config>

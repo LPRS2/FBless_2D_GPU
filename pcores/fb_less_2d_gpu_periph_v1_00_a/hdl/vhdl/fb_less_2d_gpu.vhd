@@ -342,20 +342,26 @@ begin
 					end if;
 					--Skip for now--
 				when CHECK_OPAQUE =>
+					-- TODO Also wait for pix_buf_draw_empty_and_ready.
 					next_state_s <= READ_INDEX;
 				when WRITE_PIXEL =>
-					--if(xx_r = TILE_LINE-1) then
-						--Outer loop finished => algorithm finished--
-						if(y_r = HEIGHT-1 and tx_r = TILE_MAT_WIDTH-1) then
-							next_state_s <= FINISH;
-						--Break inner loop, continue outer loop--
-						elsif(tx_r = TILE_MAT_WIDTH-1) then
-							next_state_s <= INC_Y;
-						--Continue inner loop--
+						if pix_buf_draw_empty_and_ready = '0' then
+							-- Stay in this state until transaction is done.
+							next_state_s <= WRITE_PIXEL;
 						else
-							next_state_s <= INC_TX;
+									--if(xx_r = TILE_LINE-1) then
+							--Outer loop finished => algorithm finished--
+							if(y_r = HEIGHT-1 and tx_r = TILE_MAT_WIDTH-1) then
+								next_state_s <= FINISH;
+							--Break inner loop, continue outer loop--
+							elsif(tx_r = TILE_MAT_WIDTH-1) then
+								next_state_s <= INC_Y;
+							--Continue inner loop--
+							else
+								next_state_s <= INC_TX;
+							end if;
+									--	end if;
 						end if;
-				--	end if;
 				when INC_Y =>
 					next_state_s <= INC_TX;
 				when INC_TX =>
@@ -571,12 +577,12 @@ begin
 		end process;
 		
 --TODO Commented for debugging.
---	FILL_RENDER_BUFFER: 
---	for i in 0 to TILE_LINE-1 generate
---		pix_buf_render(i)(23 downto 16) <= acc_b_r(i);
---		pix_buf_render(i)(15 downto 8) <= acc_g_r(i);
---		pix_buf_render(i)(7 downto 0) <= acc_r_r(i);
---	end generate FILL_RENDER_BUFFER;
+	FILL_RENDER_BUFFER: 
+	for i in 0 to TILE_LINE-1 generate
+		pix_buf_render(i)(23 downto 16) <= acc_b_r(i);
+		pix_buf_render(i)(15 downto 8) <= acc_g_r(i);
+		pix_buf_render(i)(7 downto 0) <= acc_r_r(i);
+	end generate FILL_RENDER_BUFFER;
 			
 	valid_render_col <= unsigned(tx_r(4 downto 0)) & "00000" when current_state_s = CHECK_OPAQUE or current_state_s = WRITE_PIXEL
 							else "1111111111"; --640 +
@@ -824,6 +830,7 @@ begin
 --	pix_buf_render_full_and_valid <= '1' when pixel_col_i = valid_render_col
 --							and pixel_row_i = valid_render_row
 --				else '0';
+	pix_buf_render_full_and_valid <= '1' when current_state_s = WRITE_PIXEL else '0';
 
 --TODO Debug.
 	process(clk_i, vga_rst_n_i)
@@ -838,10 +845,10 @@ begin
 	end process;
 	T1: for t in 0 to TILE_LINE-1 generate
 		--pix_buf_render(t) <= x"0000ff" when test_cnt(0) = '0' else x"ff0000"; -- work
-		pix_buf_render(t) <= (std_logic_vector(test_cnt) & "000000" & x"0000");
+--		pix_buf_render(t) <= (std_logic_vector(test_cnt) & "000000" & x"0000");
 		--pix_buf_render(t) <= (std_logic_vector(test_cnt) & std_logic_vector(to_unsigned(t, 5)) & x"0000");
 	end generate T1;
-	pix_buf_render_full_and_valid <= '1';
+--	pix_buf_render_full_and_valid <= '1';
 	
 
 	pix_buf_draw_idx <= pixel_col_i(TILE_BITS-1 downto 0);
@@ -849,19 +856,24 @@ begin
 	begin
 		if vga_rst_n_i = '0' then
 			pix_buf_draw <= (others => (others => '0'));
-			pix_buf_draw_empty_and_ready <= '1';
+			pix_buf_draw_empty_and_ready <= '0';
 			
 			pix_buf_draw_error <= '0';
 			
 			rgb_o <= (others => '0');
 		elsif rising_edge(clk_i) then
+			-- Start line.
+			if pixel_col_i = 0 and pixel_row_i = 0 and phase_i = 0 then
+				pix_buf_draw_empty_and_ready <= '1';
+			end if;
+			
 			if pix_buf_render_full_and_valid = '1' and pix_buf_draw_empty_and_ready = '1' then
 				pix_buf_draw <= pix_buf_render;
 				pix_buf_draw_empty_and_ready <= '0';
 			end if;
 			
 			-- VGA ctrl took data in phase 3 and 0. At phase 0 we give data and in phase 1 we demand new line.
-			if phase_i = 0  then
+			if phase_i = 0 then
 				-- For debugging.
 				if pix_buf_render_full_and_valid = '0' and pix_buf_draw_empty_and_ready = '1' then
 					pix_buf_draw_error <= '1';
