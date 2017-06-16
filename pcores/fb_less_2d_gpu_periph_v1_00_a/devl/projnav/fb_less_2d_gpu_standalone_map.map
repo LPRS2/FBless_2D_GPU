@@ -11,7 +11,7 @@ Target Device  : xc6slx45
 Target Package : fgg676
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Thu Jun 08 15:35:10 2017
+Mapped Date    : Mon Jun 12 10:41:59 2017
 
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 INFO:Security:50 - The XILINXD_LICENSE_FILE environment variable is set to
@@ -36,138 +36,1871 @@ Updating timing models...
 INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
 Running timing-driven placement...
-Total REAL time at the beginning of Placer: 3 secs 
-Total CPU  time at the beginning of Placer: 3 secs 
+Total REAL time at the beginning of Placer: 29 secs 
+Total CPU  time at the beginning of Placer: 27 secs 
 
 Phase 1.1  Initial Placement Analysis
-Phase 1.1  Initial Placement Analysis (Checksum:4a3ca4e9) REAL time: 4 secs 
+Phase 1.1  Initial Placement Analysis (Checksum:aadc27b) REAL time: 33 secs 
 
 Phase 2.7  Design Feasibility Check
-Phase 2.7  Design Feasibility Check (Checksum:4a3ca4e9) REAL time: 4 secs 
+Phase 2.7  Design Feasibility Check (Checksum:aadc27b) REAL time: 35 secs 
 
 Phase 3.31  Local Placement Optimization
-Phase 3.31  Local Placement Optimization (Checksum:4a3ca4e9) REAL time: 4 secs 
+Phase 3.31  Local Placement Optimization (Checksum:aadc27b) REAL time: 35 secs 
 
 Phase 4.2  Initial Placement for Architecture Specific Features
 
 Phase 4.2  Initial Placement for Architecture Specific Features
-(Checksum:7b3e7b1) REAL time: 6 secs 
+(Checksum:df22f554) REAL time: 41 secs 
 
 Phase 5.36  Local Placement Optimization
-Phase 5.36  Local Placement Optimization (Checksum:7b3e7b1) REAL time: 6 secs 
+Phase 5.36  Local Placement Optimization (Checksum:df22f554) REAL time: 41 secs 
 
 Phase 6.30  Global Clock Region Assignment
-Phase 6.30  Global Clock Region Assignment (Checksum:7b3e7b1) REAL time: 6 secs 
+Phase 6.30  Global Clock Region Assignment (Checksum:df22f554) REAL time: 41 secs 
 
 Phase 7.3  Local Placement Optimization
-Phase 7.3  Local Placement Optimization (Checksum:7b3e7b1) REAL time: 6 secs 
+Phase 7.3  Local Placement Optimization (Checksum:df22f554) REAL time: 41 secs 
 
 Phase 8.5  Local Placement Optimization
-Phase 8.5  Local Placement Optimization (Checksum:7b3e7b1) REAL time: 6 secs 
+Phase 8.5  Local Placement Optimization (Checksum:df22f554) REAL time: 41 secs 
 
 Phase 9.8  Global Placement
-......
-..
-Phase 9.8  Global Placement (Checksum:900dc7cb) REAL time: 6 secs 
+................
+......................................................................................................................
+..............................................................................................................................................................
+..................................................................................................................................................................................................................................
+.................................
+ERROR:Place:543 - This design does not fit into the number of slices available
+   in this device due to the complexity of the design and/or constraints.
 
-Phase 10.5  Local Placement Optimization
-Phase 10.5  Local Placement Optimization (Checksum:900dc7cb) REAL time: 6 secs 
+   Unplaced instances by type:
 
-Phase 11.18  Placement Optimization
-Phase 11.18  Placement Optimization (Checksum:4f675e33) REAL time: 6 secs 
+     LUT    178 (94.7)
+     FF    29 (38.2)
+     LUTL    168 (34.4)
 
-Phase 12.5  Local Placement Optimization
-Phase 12.5  Local Placement Optimization (Checksum:4f675e33) REAL time: 6 secs 
+   Please evaluate the following:
 
-Phase 13.34  Placement Validation
-Phase 13.34  Placement Validation (Checksum:4f675e33) REAL time: 6 secs 
+   - If there are user-defined constraints or area groups:
+     Please look at the "User-defined constraints" section below to determine
+     what constraints might be impacting the fitting of this design.
+     Evaluate if they can be moved, removed or resized to allow for fitting.
+     Verify that they do not overlap or conflict with clock region restrictions.
+     See the clock region reports in the MAP log file (*map) for more details
+     on clock region usage.
 
-Total REAL time to Placer completion: 6 secs 
-Total CPU  time to Placer completion: 5 secs 
-Running post-placement packing...
-Writing output files...
+   - If there is difficulty in placing LUTs:
+     Try using the MAP LUT Combining Option (map lc area|auto|off).
 
-Design Summary
---------------
+   - If there is difficulty in placing FFs:
+     Evaluate the number and configuration of the control sets in your design.
 
-Design Summary:
-Number of errors:      0
-Number of warnings:    0
-Slice Logic Utilization:
-  Number of Slice Registers:                    57 out of  54,576    1%
-    Number used as Flip Flops:                  57
-    Number used as Latches:                      0
-    Number used as Latch-thrus:                  0
-    Number used as AND/OR logics:                0
-  Number of Slice LUTs:                         64 out of  27,288    1%
-    Number used as logic:                       61 out of  27,288    1%
-      Number using O6 output only:              31
-      Number using O5 output only:              20
-      Number using O5 and O6:                   10
-      Number used as ROM:                        0
-    Number used as Memory:                       0 out of   6,408    0%
-    Number used exclusively as route-thrus:      3
-      Number with same-slice register load:      0
-      Number with same-slice carry load:         3
-      Number with other load:                    0
+   The following instances are the last set of instances that failed to place:
 
-Slice Logic Distribution:
-  Number of occupied Slices:                    32 out of   6,822    1%
-  Number of MUXCYs used:                        32 out of  13,644    1%
-  Number of LUT Flip Flop pairs used:           83
-    Number with an unused Flip Flop:            32 out of      83   38%
-    Number with an unused LUT:                  19 out of      83   22%
-    Number of fully used LUT-FF pairs:          32 out of      83   38%
-    Number of unique control sets:              10
-    Number of slice register sites lost
-      to control set restrictions:              55 out of  54,576    1%
+   0. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lut<4>
+   1. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lut<4>
+   2. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lut<4>
+   3. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lut<4>
+   4. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lut<4>
+   5. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lut<4>
+   6. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lut<4>
+   7. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lut<4>
+   8. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lut<4>
+   9. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lut<4>
+   10. Placer RPM "carry chain" (size: 14)
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lutdi3
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lut<3>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lutdi2
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lut<2>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lutdi1
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lut<1>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lutdi
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lut<0>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lutdi6
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lut<6>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lutdi5
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lut<5>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lutdi4
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lut<4>
+   11. Placer RPM "carry chain" (size: 14)
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lutdi3
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lut<3>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lutdi2
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lut<2>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lutdi1
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lut<1>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lutdi
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lut<0>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lutdi6
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lut<6>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lutdi5
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lut<5>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lutdi4
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lut<4>
+   12. fb_less_2d_gpu_i/current_state_s[4]_GND_15492_o_Mux_37440_o (size: 2)
+       LUT fb_less_2d_gpu_i/current_state_s[4]_GND_15492_o_Mux_37440_o
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_15492_o_Mux_37440_o11
+   13. fb_less_2d_gpu_i/current_state_s[4]_GND_18116_o_Mux_42688_o (size: 2)
+       LUT fb_less_2d_gpu_i/current_state_s[4]_GND_18116_o_Mux_42688_o
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_18116_o_Mux_42688_o11
+   14. fb_less_2d_gpu_i/current_state_s[4]_GND_19012_o_Mux_44480_o (size: 2)
+       LUT fb_less_2d_gpu_i/current_state_s[4]_GND_19012_o_Mux_44480_o
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_19012_o_Mux_44480_o11
+   15. fb_less_2d_gpu_i/current_state_s[4]_GND_18212_o_Mux_42880_o (size: 2)
+       LUT fb_less_2d_gpu_i/current_state_s[4]_GND_18212_o_Mux_42880_o
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_18212_o_Mux_42880_o11
+   16. fb_less_2d_gpu_i/current_state_s[4]_GND_14596_o_Mux_35648_o (size: 2)
+       LUT fb_less_2d_gpu_i/current_state_s[4]_GND_14596_o_Mux_35648_o
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_14596_o_Mux_35648_o11
+   17. fb_less_2d_gpu_i/Mmux_current_state_s[4]_mem_addr_s[7]_Mux_47561_o112
+   (size: 4)
+       LUT fb_less_2d_gpu_i/Msub_n30808_Madd_xor<12>11_SW0
+       LUT
+   fb_less_2d_gpu_i/Mmux_current_state_s[4]_mem_addr_s[7]_Mux_47561_o1121
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_mem_addr_s[7]_Mux_47561_o112
+       LUT fb_less_2d_gpu_i/Msub_n30808_Madd_xor<12>11
+   18. fb_less_2d_gpu_i/current_state_s[4]_GND_14692_o_Mux_35840_o (size: 2)
+       LUT fb_less_2d_gpu_i/current_state_s[4]_GND_14692_o_Mux_35840_o
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_14692_o_Mux_35840_o11
+   19. fb_less_2d_gpu_i/current_state_s[4]_GND_14916_o_Mux_36288_o (size: 2)
+       LUT fb_less_2d_gpu_i/current_state_s[4]_GND_14916_o_Mux_36288_o
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_14916_o_Mux_36288_o11
+   20. fb_less_2d_gpu_i/current_state_s[4]_weight_s[0][3]_Mux_8101_o (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_weight_s[0][6]_Mux_8095_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_weight_s[0][3]_Mux_8101_o11
+   21. fb_less_2d_gpu_i/Mmux_current_state_s[4]_mem_addr_s[7]_Mux_47561_o1
+   (size: 4)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_mem_addr_s[7]_Mux_47561_o1
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_mem_addr_s[7]_Mux_47561_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_mem_addr_s[7]_Mux_47561_o1
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_mem_addr_s[7]_Mux_47561_o12
+   22. fb_less_2d_gpu_i/current_state_s[4]_GND_20388_o_Mux_47232_o (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_20516_o_Mux_47488_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_20388_o_Mux_47232_o11
+   23. N21 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_ti_s[7]_Mux_9101_o1_SW0
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_ti_s[6]_Mux_9103_o1_SW0
+   24. fb_less_2d_gpu_i/current_state_s[4]_GND_11748_o_Mux_29952_o (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_11620_o_Mux_29696_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_11748_o_Mux_29952_o11
+   25. fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_1275_o_Mux_9006_o11 (size:
+   2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_1259_o_Mux_8974_o111
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_1275_o_Mux_9006_o111
+   26. fb_less_2d_gpu_i/current_state_s[4]_GND_17892_o_Mux_42240_o (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_12772_o_Mux_32000_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_17892_o_Mux_42240_o11
+   27. fb_less_2d_gpu_i/pix_buf_draw_27<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_27_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_27_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_27_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_27_22
+   28. fb_less_2d_gpu_i/current_state_s[4]_GND_13924_o_Mux_34304_o (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_12644_o_Mux_31744_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_13924_o_Mux_34304_o11
+   29. fb_less_2d_gpu_i/current_state_s[4]_GND_20878_o_Mux_48212_o (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_20862_o_Mux_48180_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_20878_o_Mux_48212_o11
+   30. fb_less_2d_gpu_i/current_state_s[4]_GND_17956_o_Mux_42368_o (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_17828_o_Mux_42112_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_17956_o_Mux_42368_o11
+   31. fb_less_2d_gpu_i/current_state_s[4]_GND_20798_o_Mux_48052_o (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_20734_o_Mux_47924_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_20798_o_Mux_48052_o11
+   32. FF fb_less_2d_gpu_i/iw_s<10>_13
+   33. fb_less_2d_gpu_i/pix_buf_draw_28<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_28_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_28_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_28_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_28_22
+   34. fb_less_2d_gpu_i/pix_buf_draw_0<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_0_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_0_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_0_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_0_22
+   35. fb_less_2d_gpu_i/current_state_s[4]_weight_s[0][11]_Mux_8085_o (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_weight_s[0][8]_Mux_8091_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_weight_s[0][11]_Mux_8085_o11
+   36. fb_less_2d_gpu_i/GND_8_o_GND_8_o_sub_3467_OUT<3> (size: 2)
+       LUT fb_less_2d_gpu_i/Msub_GND_8_o_GND_8_o_sub_3214_OUT<4:0>_xor<3>11
+       LUT fb_less_2d_gpu_i/Msub_GND_8_o_GND_8_o_sub_3467_OUT<4:0>_xor<3>11
+   37. fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_17316_o_Mux_41088_o11 (size:
+   6)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_17444_o_Mux_41344_o111
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_17316_o_Mux_41088_o111
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_17316_o_Mux_41088_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_8612_o_Mux_23680_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_17316_o_Mux_41088_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_8740_o_Mux_23936_o11
+   38. fb_less_2d_gpu_i/pix_buf_draw_29<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_29_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_29_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_29_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_29_22
+   39. fb_less_2d_gpu_i/current_state_s[4]_GND_6628_o_Mux_19712_o (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_6500_o_Mux_19456_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_6628_o_Mux_19712_o11
+   40. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_101 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_101
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_101
+   41. fb_less_2d_gpu_i/GND_8_o_tx_r[4]_equal_2731_o71 (size: 4)
+       LUT fb_less_2d_gpu_i/tx_r[10]_ix_r[15]_or_2914_OUT<5>1
+       LUT fb_less_2d_gpu_i/GND_8_o_tx_r[4]_equal_2731_o711
+       LUT fb_less_2d_gpu_i/GND_8_o_tx_r[4]_equal_2731_o71
+       LUT fb_less_2d_gpu_i/GND_8_o_tx_r[4]_equal_2731_o84
+   42. FF fb_less_2d_gpu_i/iw_s<11>_13
+   43. fb_less_2d_gpu_i/GND_8_o_GND_8_o_sub_3332_OUT<3> (size: 2)
+       LUT fb_less_2d_gpu_i/Msub_GND_8_o_GND_8_o_sub_3103_OUT<4:0>_xor<2>11
+       LUT fb_less_2d_gpu_i/Msub_GND_8_o_GND_8_o_sub_3332_OUT<4:0>_xor<3>11
+   44. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_102 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_102
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_102
+   45. fb_less_2d_gpu_i/pix_buf_draw_2<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_2_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_2_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_2_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_2_22
+   46. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_103 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_103
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_103
+   47. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_104 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_104
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_104
+   48. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_105 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_105
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_105
+   49. fb_less_2d_gpu_i/current_state_s[4]_GND_4932_o_Mux_16320_o (size: 2)
+       LUT fb_less_2d_gpu_i/current_state_s[4]_GND_4932_o_Mux_16320_o
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_4932_o_Mux_16320_o11
+   50. fb_less_2d_gpu_i/current_state_s[4]_GND_8036_o_Mux_22528_o (size: 2)
+       LUT fb_less_2d_gpu_i/current_state_s[4]_GND_8036_o_Mux_22528_o
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_8036_o_Mux_22528_o11
+   51. fb_less_2d_gpu_i/Mmux_current_state_s[4]_mem_addr_s[10]_Mux_47555_o11
+   (size: 4)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_mem_addr_s[6]_Mux_47563_o12
+       LUT
+   fb_less_2d_gpu_i/Mmux_current_state_s[4]_mem_addr_s[10]_Mux_47555_o111
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_mem_addr_s[10]_Mux_47555_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_mem_addr_s[9]_Mux_47557_o11
+   52. fb_less_2d_gpu_i/current_state_s[4]_GND_7236_o_Mux_20928_o (size: 2)
+       LUT fb_less_2d_gpu_i/current_state_s[4]_GND_7236_o_Mux_20928_o
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_7236_o_Mux_20928_o11
+   53. fb_less_2d_gpu_i/current_state_s[4]_GND_4836_o_Mux_16128_o (size: 2)
+       LUT fb_less_2d_gpu_i/current_state_s[4]_GND_4836_o_Mux_16128_o
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_4836_o_Mux_16128_o11
+   54. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_106 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_106
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_106
+   55. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_107 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_107
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_107
+   56. fb_less_2d_gpu_i/pix_buf_draw_3<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_3_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_3_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_3_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_3_22
+   57. fb_less_2d_gpu_i/tx_r[10]_ix_r[15]_or_2914_OUT<6> (size: 2)
+       LUT fb_less_2d_gpu_i/tx_r[10]_ix_r[15]_or_2914_OUT<7>1
+       LUT fb_less_2d_gpu_i/tx_r[10]_ix_r[15]_or_2914_OUT<6>1
+   58. fb_less_2d_gpu_i/Mmux_current_state_s[4]_mem_addr_s[10]_Mux_47555_o13
+   (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_mem_addr_s[6]_Mux_47563_o11
+       LUT
+   fb_less_2d_gpu_i/Mmux_current_state_s[4]_mem_addr_s[10]_Mux_47555_o131
+   59. fb_less_2d_gpu_i/current_state_s[4]_acc_g_s[0][2]_Mux_7063_o (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_acc_g_s[0][5]_Mux_7057_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_acc_g_s[0][2]_Mux_7063_o11
+   60. fb_less_2d_gpu_i/pix_buf_draw_4<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_4_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_4_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_4_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_4_22
+   61. FF fb_less_2d_gpu_i/iw_s<20>_13
+   62. FF fb_less_2d_gpu_i/iw_s<12>_13
+   63. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[0]_9 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[0]_9
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[0]_9
+   64. fb_less_2d_gpu_i/tx_r[10]_ix_r[15]_or_2914_OUT<8> (size: 2)
+       LUT fb_less_2d_gpu_i/tx_r[10]_ix_r[15]_or_2914_OUT<9>1
+       LUT fb_less_2d_gpu_i/tx_r[10]_ix_r[15]_or_2914_OUT<8>1
+   65. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[1]_9 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[1]_9
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[1]_9
+   66. fb_less_2d_gpu_i/current_state_s[4]_weight_s[0][15]_Mux_8077_o (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_weight_s[0][1]_Mux_8105_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_weight_s[0][15]_Mux_8077_o11
+   67. fb_less_2d_gpu_i/current_state_s[4]_GND_19300_o_Mux_45056_o (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_19428_o_Mux_45312_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_19300_o_Mux_45056_o11
+   68. fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_10820_o_Mux_28096_o12 (size:
+   6)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_10884_o_Mux_28224_o111
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_10820_o_Mux_28096_o121
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_10820_o_Mux_28096_o12
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_19972_o_Mux_46400_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_10820_o_Mux_28096_o12
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_19908_o_Mux_46272_o11
+   69. FF fb_less_2d_gpu_i/iw_s<13>_13
+   70. FF fb_less_2d_gpu_i/iw_s<21>_13
+   71. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_910 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_910
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_910
+   72. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[2]_9 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[2]_9
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[2]_9
+   73. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_911 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_911
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_911
+   74. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[0]_10 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[0]_10
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[0]_10
+   75. fb_less_2d_gpu_i/current_state_s[4]_GND_5092_o_Mux_16640_o (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_20452_o_Mux_47360_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_5092_o_Mux_16640_o11
+   76. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_912 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_912
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_912
+   77. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_913 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_913
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_913
+   78. fb_less_2d_gpu_i/pix_buf_draw_6<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_6_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_6_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_6_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_6_22
+   79. fb_less_2d_gpu_i/current_state_s[4]_GND_1307_o_Mux_9070_o (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_1275_o_Mux_9006_o12
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_1307_o_Mux_9070_o11
+   80. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_914 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_914
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_914
+   81. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[3]_9 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[3]_9
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[3]_9
+   82. fb_less_2d_gpu_i/current_state_s[4]_GND_1732_o_Mux_9920_o (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_17092_o_Mux_40640_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_1732_o_Mux_9920_o11
+   83. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_915 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_915
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2722_OUT_915
+   84. fb_less_2d_gpu_i/current_state_s[4]_GND_21182_o_Mux_48820_o (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_21118_o_Mux_48692_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_21182_o_Mux_48820_o11
+   85. fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_14756_o_Mux_35968_o11 (size:
+   6)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_14884_o_Mux_36224_o111
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_14756_o_Mux_35968_o111
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_14756_o_Mux_35968_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_6052_o_Mux_18560_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_14756_o_Mux_35968_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_6180_o_Mux_18816_o11
+   86. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[4]_9 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[4]_9
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[4]_9
+   87. fb_less_2d_gpu_i/pix_buf_draw_7<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_7_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_7_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_7_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_7_22
+   88. fb_less_2d_gpu_i/current_state_s[4]_GND_1227_o_Mux_8910_o (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_1195_o_Mux_8846_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_1227_o_Mux_8910_o11
+   89. fb_less_2d_gpu_i/current_state_s[4]_GND_11972_o_Mux_30400_o (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_18372_o_Mux_43200_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_11972_o_Mux_30400_o11
+   90. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[5]_9 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[5]_9
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[5]_9
+   91. FF fb_less_2d_gpu_i/iw_s<30>_13
+   92. fb_less_2d_gpu_i/pix_buf_draw_8<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_8_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_8_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_8_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_8_22
+   93. FF fb_less_2d_gpu_i/iw_s<14>_13
+   94. fb_less_2d_gpu_i/current_state_s[4]_GND_12836_o_Mux_32128_o (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_12708_o_Mux_31872_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_12836_o_Mux_32128_o11
+   95. FF fb_less_2d_gpu_i/iw_s<22>_13
+   96. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[1]_10 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[1]_10
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[1]_10
+   97. fb_less_2d_gpu_i/current_state_s[4]_acc_g_s[0][6]_Mux_7055_o (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_acc_g_s[0][3]_Mux_7061_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_acc_g_s[0][6]_Mux_7055_o11
+   98. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[0]_91 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[0]_91
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[0]_91
+   99. fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[6]_9 (size: 2)
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[6]_9
+       LUT fb_less_2d_gpu_i/Mmux_tx_r[4]_X_8_o_wide_mux_2894_OUT[6]_9
+Phase 9.8  Global Placement (Checksum:ad38094f) REAL time: 6 mins 21 secs 
 
-  A LUT Flip Flop pair for this architecture represents one LUT paired with
-  one Flip Flop within a slice.  A control set is a unique combination of
-  clock, reset, set, and enable signals for a registered element.
-  The Slice Logic Distribution report is not meaningful if the design is
-  over-mapped for a non-slice resource or if Placement fails.
+Phase 10.8  Global Placement
+.............
+................................................................................................................................................................
+.......................................................................................................................................................................................
+.......................
+ERROR:Place:543 - This design does not fit into the number of slices available
+   in this device due to the complexity of the design and/or constraints.
 
-IO Utilization:
-  Number of bonded IOBs:                        32 out of     358    8%
-    Number of LOCed IOBs:                       32 out of      32  100%
+   Unplaced instances by type:
 
-Specific Feature Utilization:
-  Number of RAMB16BWERs:                         0 out of     116    0%
-  Number of RAMB8BWERs:                          0 out of     232    0%
-  Number of BUFIO2/BUFIO2_2CLKs:                 1 out of      32    3%
-    Number used as BUFIO2s:                      1
-    Number used as BUFIO2_2CLKs:                 0
-  Number of BUFIO2FB/BUFIO2FB_2CLKs:             1 out of      32    3%
-    Number used as BUFIO2FBs:                    1
-    Number used as BUFIO2FB_2CLKs:               0
-  Number of BUFG/BUFGMUXs:                       2 out of      16   12%
-    Number used as BUFGs:                        2
-    Number used as BUFGMUX:                      0
-  Number of DCM/DCM_CLKGENs:                     1 out of       8   12%
-    Number used as DCMs:                         1
-    Number used as DCM_CLKGENs:                  0
-  Number of ILOGIC2/ISERDES2s:                   0 out of     376    0%
-  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     376    0%
-  Number of OLOGIC2/OSERDES2s:                   0 out of     376    0%
-  Number of BSCANs:                              0 out of       4    0%
-  Number of BUFHs:                               0 out of     256    0%
-  Number of BUFPLLs:                             0 out of       8    0%
-  Number of BUFPLL_MCBs:                         0 out of       4    0%
-  Number of DSP48A1s:                            0 out of      58    0%
-  Number of ICAPs:                               0 out of       1    0%
-  Number of MCBs:                                0 out of       2    0%
-  Number of PCILOGICSEs:                         0 out of       2    0%
-  Number of PLL_ADVs:                            0 out of       4    0%
-  Number of PMVs:                                0 out of       1    0%
-  Number of STARTUPs:                            0 out of       1    0%
-  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+     LUT    30 (100.0)
+     FF    86 (44.1)
+     LUTL    168 (34.4)
 
-Average Fanout of Non-Clock Nets:                2.76
+   Please evaluate the following:
 
-Peak Memory Usage:  434 MB
-Total REAL time to MAP completion:  6 secs 
-Total CPU time to MAP completion:   6 secs 
+   - If there are user-defined constraints or area groups:
+     Please look at the "User-defined constraints" section below to determine
+     what constraints might be impacting the fitting of this design.
+     Evaluate if they can be moved, removed or resized to allow for fitting.
+     Verify that they do not overlap or conflict with clock region restrictions.
+     See the clock region reports in the MAP log file (*map) for more details
+     on clock region usage.
+
+   - If there is difficulty in placing LUTs:
+     Try using the MAP LUT Combining Option (map lc area|auto|off).
+
+   - If there is difficulty in placing FFs:
+     Evaluate the number and configuration of the control sets in your design.
+
+   The following instances are the last set of instances that failed to place:
+
+   0. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lut<4>
+   1. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lut<4>
+   2. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lut<4>
+   3. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lut<4>
+   4. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lut<4>
+   5. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lut<4>
+   6. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lut<4>
+   7. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lut<4>
+   8. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lut<4>
+   9. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lut<4>
+   10. Placer RPM "carry chain" (size: 14)
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lutdi3
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lut<3>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lutdi2
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lut<2>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lutdi1
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lut<1>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lutdi
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lut<0>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lutdi6
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lut<6>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lutdi5
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lut<5>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lutdi4
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lut<4>
+   11. Placer RPM "carry chain" (size: 14)
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lutdi3
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lut<3>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lutdi2
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lut<2>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lutdi1
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lut<1>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lutdi
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lut<0>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lutdi6
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lut<6>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lutdi5
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lut<5>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lutdi4
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lut<4>
+   12. fb_less_2d_gpu_i/current_state_s[4]_GND_15492_o_Mux_37440_o (size: 2)
+       LUT fb_less_2d_gpu_i/current_state_s[4]_GND_15492_o_Mux_37440_o
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_15492_o_Mux_37440_o11
+   13. fb_less_2d_gpu_i/current_state_s[4]_GND_18116_o_Mux_42688_o (size: 2)
+       LUT fb_less_2d_gpu_i/current_state_s[4]_GND_18116_o_Mux_42688_o
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_18116_o_Mux_42688_o11
+   14. FF fb_less_2d_gpu_i/tile_mat_r<0><17>_1<7>
+   15. fb_less_2d_gpu_i/current_state_s[4]_GND_19012_o_Mux_44480_o (size: 2)
+       LUT fb_less_2d_gpu_i/current_state_s[4]_GND_19012_o_Mux_44480_o
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_19012_o_Mux_44480_o11
+   16. FF fb_less_2d_gpu_i/tile_mat_r<0><17>_2<3>
+   17. FF fb_less_2d_gpu_i/weight_s<10>_3
+   18. fb_less_2d_gpu_i/pix_buf_draw_8<20> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_8_21_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_8_20_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_8_21
+       FF fb_less_2d_gpu_i/pix_buf_draw_8_20
+   19. fb_less_2d_gpu_i/current_state_s[4]_GND_18212_o_Mux_42880_o (size: 2)
+       LUT fb_less_2d_gpu_i/current_state_s[4]_GND_18212_o_Mux_42880_o
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_18212_o_Mux_42880_o11
+   20. FF fb_less_2d_gpu_i/tile_mat_r<6><13>_2<5>
+   21. FF fb_less_2d_gpu_i/tile_mat_r<0><17>_3<0>
+   22. FF fb_less_2d_gpu_i/tile_mat_s<9><13><7>_3
+   23. FF fb_less_2d_gpu_i/tile_mat_s<3><12><6>_3
+   24. FF fb_less_2d_gpu_i/tile_mat_r<3><0>_2<6>
+   25. FF fb_less_2d_gpu_i/tile_mat_s<10><11><0>_3
+   26. fb_less_2d_gpu_i/current_state_s[4]_GND_14596_o_Mux_35648_o (size: 2)
+       LUT fb_less_2d_gpu_i/current_state_s[4]_GND_14596_o_Mux_35648_o
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_14596_o_Mux_35648_o11
+   27. FF fb_less_2d_gpu_i/tile_mat_r<6><13>_3<1>
+   28. FF fb_less_2d_gpu_i/tile_mat_r<0><17>_2<4>
+   29. FF fb_less_2d_gpu_i/tile_mat_s<9><13><7>_6
+   30. FF fb_less_2d_gpu_i/tile_mat_r<2><8>_2<7>
+   31. fb_less_2d_gpu_i/Mmux_current_state_s[4]_mem_addr_s[7]_Mux_47561_o112
+   (size: 4)
+       LUT fb_less_2d_gpu_i/Msub_n30808_Madd_xor<12>11_SW0
+       LUT
+   fb_less_2d_gpu_i/Mmux_current_state_s[4]_mem_addr_s[7]_Mux_47561_o1121
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_mem_addr_s[7]_Mux_47561_o112
+       LUT fb_less_2d_gpu_i/Msub_n30808_Madd_xor<12>11
+   32. fb_less_2d_gpu_i/current_state_s[4]_GND_14692_o_Mux_35840_o (size: 2)
+       LUT fb_less_2d_gpu_i/current_state_s[4]_GND_14692_o_Mux_35840_o
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_14692_o_Mux_35840_o11
+   33. FF fb_less_2d_gpu_i/tile_mat_r<0><17>_3<1>
+   34. FF fb_less_2d_gpu_i/tile_mat_s<9><13><7>_7
+   35. FF fb_less_2d_gpu_i/tile_mat_s<10><8><5>_7
+   36. FF fb_less_2d_gpu_i/tile_mat_r<3><0>_2<7>
+   37. fb_less_2d_gpu_i/current_state_s[4]_GND_14916_o_Mux_36288_o (size: 2)
+       LUT fb_less_2d_gpu_i/current_state_s[4]_GND_14916_o_Mux_36288_o
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_GND_14916_o_Mux_36288_o11
+   38. FF fb_less_2d_gpu_i/tile_mat_r<0><17>_2<5>
+   39. FF fb_less_2d_gpu_i/tile_mat_s<11><0><5>_7
+   40. FF fb_less_2d_gpu_i/weight_s<10>_7
+   41. FF fb_less_2d_gpu_i/tile_mat_r<2><8>_3<4>
+   42. FF fb_less_2d_gpu_i/tile_mat_r<6><13>_2<6>
+   43. FF fb_less_2d_gpu_i/tile_mat_r<0><17>_2<6>
+   44. FF fb_less_2d_gpu_i/tile_mat_s<3><12><6>_7
+   45. FF fb_less_2d_gpu_i/tile_mat_r<2><8>_4<0>
+   46. FF fb_less_2d_gpu_i/tile_mat_s<10><11><0>_7
+   47. FF fb_less_2d_gpu_i/tile_mat_s<1><9><1>_7
+   48. FF fb_less_2d_gpu_i/tile_mat_r<0><17>_2<7>
+   49. FF fb_less_2d_gpu_i/tile_mat_r<3><0>_3<4>
+   50. fb_less_2d_gpu_i/pix_buf_draw_16<14> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_16_15_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_16_14_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_16_15
+       FF fb_less_2d_gpu_i/pix_buf_draw_16_14
+   51. FF fb_less_2d_gpu_i/tile_mat_s<2><1><1>_7
+   52. FF fb_less_2d_gpu_i/tile_mat_r<0><17>_3<4>
+   53. FF fb_less_2d_gpu_i/tile_mat_s<9><14><0>_3
+   54. FF fb_less_2d_gpu_i/tile_mat_s<3><12><7>_1
+   55. FF fb_less_2d_gpu_i/tile_mat_r<3><0>_4<0>
+   56. FF fb_less_2d_gpu_i/tile_mat_s<10><11><1>_1
+   57. fb_less_2d_gpu_i/pix_buf_draw_16<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_16_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_16_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_16_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_16_22
+   58. FF fb_less_2d_gpu_i/tile_mat_s<6><5><3>_3
+   59. FF fb_less_2d_gpu_i/tile_mat_r<6><13>_2<7>
+   60. FF fb_less_2d_gpu_i/tile_mat_r<0><17>_4<0>
+   61. FF fb_less_2d_gpu_i/tile_mat_s<3><12><7>_2
+   62. FF fb_less_2d_gpu_i/tile_mat_r<2><8>_3<5>
+   63. FF fb_less_2d_gpu_i/tile_mat_s<10><11><1>_2
+   64. fb_less_2d_gpu_i/pix_buf_draw_24<14> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_24_15_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_24_14_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_24_15
+       FF fb_less_2d_gpu_i/pix_buf_draw_24_14
+   65. FF fb_less_2d_gpu_i/tile_mat_s<6><5><3>_6
+   66. FF fb_less_2d_gpu_i/tile_mat_r<0><17>_3<5>
+   67. FF fb_less_2d_gpu_i/tile_mat_s<3><12><7>_3
+   68. FF fb_less_2d_gpu_i/tile_mat_r<2><8>_4<1>
+   69. FF fb_less_2d_gpu_i/tile_mat_s<10><11><1>_3
+   70. fb_less_2d_gpu_i/pix_buf_draw_24<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_24_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_24_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_24_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_24_22
+   71. FF fb_less_2d_gpu_i/tile_mat_s<6><5><3>_7
+   72. FF fb_less_2d_gpu_i/tile_mat_r<0><17>_4<1>
+   73. FF fb_less_2d_gpu_i/tile_mat_s<3><12><7>_6
+   74. FF fb_less_2d_gpu_i/weight_s<11>_3
+   75. FF fb_less_2d_gpu_i/tile_mat_r<3><0>_3<5>
+   76. FF fb_less_2d_gpu_i/tile_mat_s<10><11><1>_4
+   77. fb_less_2d_gpu_i/pix_buf_draw_3<8> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_3_9_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_3_8_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_3_9
+       FF fb_less_2d_gpu_i/pix_buf_draw_3_8
+   78. FF fb_less_2d_gpu_i/tile_mat_r<6><13>_4<0>
+   79. FF fb_less_2d_gpu_i/tile_mat_r<0><17>_3<6>
+   80. FF fb_less_2d_gpu_i/tile_mat_s<9><14><0>_7
+   81. FF fb_less_2d_gpu_i/tile_mat_s<3><12><7>_7
+   82. FF fb_less_2d_gpu_i/tile_mat_s<10><8><6>_3
+   83. FF fb_less_2d_gpu_i/tile_mat_r<3><0>_4<1>
+   84. FF fb_less_2d_gpu_i/tile_mat_s<10><11><1>_5
+   85. FF fb_less_2d_gpu_i/tile_mat_r<6><13>_3<4>
+   86. FF fb_less_2d_gpu_i/tile_mat_r<0><17>_4<2>
+   87. FF fb_less_2d_gpu_i/tile_mat_s<11><0><6>_3
+   88. FF fb_less_2d_gpu_i/tile_mat_r<2><8>_3<6>
+   89. FF fb_less_2d_gpu_i/tile_mat_s<10><11><1>_6
+   90. FF fb_less_2d_gpu_i/tile_mat_r<0><17>_3<7>
+   91. FF fb_less_2d_gpu_i/tile_mat_s<9><14><1>_1
+   92. FF fb_less_2d_gpu_i/tile_mat_r<2><8>_4<2>
+   93. FF fb_less_2d_gpu_i/tile_mat_s<10><11><1>_7
+   94. FF fb_less_2d_gpu_i/tile_mat_s<6><5><4>_3
+   95. FF fb_less_2d_gpu_i/tile_mat_r<0><17>_4<3>
+   96. FF fb_less_2d_gpu_i/tile_mat_s<9><14><1>_2
+   97. FF fb_less_2d_gpu_i/weight_s<11>_7
+   98. FF fb_less_2d_gpu_i/tile_mat_r<3><0>_3<6>
+   99. FF fb_less_2d_gpu_i/tile_mat_s<10><11><2>_0
+Phase 10.8  Global Placement (Checksum:f29218cf) REAL time: 24 mins 41 secs 
+
+Phase 11.9  Local Placement Optimization
+ERROR:Place:543 - This design does not fit into the number of slices available
+   in this device due to the complexity of the design and/or constraints.
+
+   Unplaced instances by type:
+
+     LUT    96 (53.9)
+     FF    135 (14.3)
+     LUTL    168 (34.4)
+
+   Please evaluate the following:
+
+   - If there are user-defined constraints or area groups:
+     Please look at the "User-defined constraints" section below to determine
+     what constraints might be impacting the fitting of this design.
+     Evaluate if they can be moved, removed or resized to allow for fitting.
+     Verify that they do not overlap or conflict with clock region restrictions.
+     See the clock region reports in the MAP log file (*map) for more details
+     on clock region usage.
+
+   - If there is difficulty in placing LUTs:
+     Try using the MAP LUT Combining Option (map lc area|auto|off).
+
+   - If there is difficulty in placing FFs:
+     Evaluate the number and configuration of the control sets in your design.
+
+   The following instances are the last set of instances that failed to place:
+
+   0. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_2989_o_lut<4>
+   1. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3216_o_lut<4>
+   2. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3334_o_lut<4>
+   3. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3095_o_lut<4>
+   4. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_3459_o_lut<4>
+   5. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_col_r[15]_GND_8_o_LessThan_2985_o_lut<4>
+   6. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_y_r[15]_rect_row_r[15]_LessThan_3466_o_lut<4>
+   7. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3220_o_lut<4>
+   8. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3338_o_lut<4>
+   9. Placer RPM "carry chain" (size: 14)
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lutdi3
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lut<3>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lutdi2
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lut<2>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lutdi1
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lut<1>
+      LUTL fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lutdi
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lut<0>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lutdi6
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lut<6>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lutdi5
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lut<5>
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lutdi4
+      LUTL
+   fb_less_2d_gpu_i/Mcompar_rect_row_r[15]_y_r[15]_LessThan_3464_o_lut<4>
+   10. Placer RPM "carry chain" (size: 14)
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lutdi3
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lut<3>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lutdi2
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lut<2>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lutdi1
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lut<1>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lutdi
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lut<0>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lutdi6
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lut<6>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lutdi5
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lut<5>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lutdi4
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3099_o_lut<4>
+   11. Placer RPM "carry chain" (size: 14)
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lutdi3
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lut<3>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lutdi2
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lut<2>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lutdi1
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lut<1>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lutdi
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lut<0>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lutdi6
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lut<6>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lutdi5
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lut<5>
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lutdi4
+       LUTL
+   fb_less_2d_gpu_i/Mcompar_GND_8_o_rect_col_r[15]_LessThan_3463_o_lut<4>
+   12. fb_less_2d_gpu_i/pix_buf_draw_8<20> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_8_21_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_8_20_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_8_21
+       FF fb_less_2d_gpu_i/pix_buf_draw_8_20
+   13. fb_less_2d_gpu_i/pix_buf_draw_16<14> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_16_15_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_16_14_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_16_15
+       FF fb_less_2d_gpu_i/pix_buf_draw_16_14
+   14. fb_less_2d_gpu_i/pix_buf_draw_16<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_16_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_16_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_16_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_16_22
+   15. fb_less_2d_gpu_i/pix_buf_draw_24<14> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_24_15_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_24_14_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_24_15
+       FF fb_less_2d_gpu_i/pix_buf_draw_24_14
+   16. fb_less_2d_gpu_i/pix_buf_draw_24<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_24_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_24_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_24_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_24_22
+   17. fb_less_2d_gpu_i/pix_buf_draw_3<8> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_3_9_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_3_8_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_3_9
+       FF fb_less_2d_gpu_i/pix_buf_draw_3_8
+   18. fb_less_2d_gpu_i/pix_buf_draw_9<12> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_9_13_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_9_12_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_9_13
+       FF fb_less_2d_gpu_i/pix_buf_draw_9_12
+   19. fb_less_2d_gpu_i/pix_buf_draw_9<20> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_9_21_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_9_20_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_9_21
+       FF fb_less_2d_gpu_i/pix_buf_draw_9_20
+   20. fb_less_2d_gpu_i/pix_buf_draw_17<14> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_17_15_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_17_14_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_17_15
+       FF fb_less_2d_gpu_i/pix_buf_draw_17_14
+   21. fb_less_2d_gpu_i/pix_buf_draw_17<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_17_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_17_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_17_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_17_22
+   22. fb_less_2d_gpu_i/pix_buf_draw_25<14> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_25_15_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_25_14_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_25_15
+       FF fb_less_2d_gpu_i/pix_buf_draw_25_14
+   23. fb_less_2d_gpu_i/pix_buf_draw_25<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_25_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_25_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_25_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_25_22
+   24. fb_less_2d_gpu_i/pix_buf_draw_6<4> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_6_5_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_6_4_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_6_5
+       FF fb_less_2d_gpu_i/pix_buf_draw_6_4
+   25. fb_less_2d_gpu_i/pix_buf_draw_5<8> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_5_9_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_5_8_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_5_9
+       FF fb_less_2d_gpu_i/pix_buf_draw_5_8
+   26. fb_less_2d_gpu_i/pix_buf_draw_7<0> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_7_1_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_7_0_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_7_1
+       FF fb_less_2d_gpu_i/pix_buf_draw_7_0
+   27. FF fb_less_2d_gpu_i/tile_mat_s<10><11><3>_6
+   28. FF fb_less_2d_gpu_i/tile_mat_s<10><11><3>_7
+   29. fb_less_2d_gpu_i/mem_addr_s_7 (size: 6)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_mem_addr_s[4]_Mux_47567_o14
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_mem_addr_s[7]_Mux_47561_o14
+       LUT fb_less_2d_gpu_i/mem_addr_s_7
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_mem_addr_s[7]_Mux_47561_o13
+       FF fb_less_2d_gpu_i/mem_addr_s_7
+       FF fb_less_2d_gpu_i/mem_addr_s_4
+   30. fb_less_2d_gpu_i/pix_buf_draw_18<14> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_18_15_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_18_14_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_18_15
+       FF fb_less_2d_gpu_i/pix_buf_draw_18_14
+   31. FF fb_less_2d_gpu_i/tile_mat_s<9><14><3>_6
+   32. fb_less_2d_gpu_i/pix_buf_draw_18<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_18_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_18_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_18_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_18_22
+   33. FF fb_less_2d_gpu_i/tile_mat_s<9><14><3>_7
+   34. fb_less_2d_gpu_i/pix_buf_draw_26<14> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_26_15_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_26_14_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_26_15
+       FF fb_less_2d_gpu_i/pix_buf_draw_26_14
+   35. fb_less_2d_gpu_i/pix_buf_draw_26<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_26_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_26_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_26_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_26_22
+   36. FF fb_less_2d_gpu_i/tile_mat_s<6><5><7>_0
+   37. fb_less_2d_gpu_i/pix_buf_draw_7<8> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_7_9_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_7_8_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_7_9
+       FF fb_less_2d_gpu_i/pix_buf_draw_7_8
+   38. FF fb_less_2d_gpu_i/tile_mat_s<6><5><7>_1
+   39. fb_less_2d_gpu_i/pix_buf_draw_8<4> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_8_5_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_8_4_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_8_5
+       FF fb_less_2d_gpu_i/pix_buf_draw_8_4
+   40. FF fb_less_2d_gpu_i/tile_mat_s<6><5><7>_2
+   41. fb_less_2d_gpu_i/pix_buf_draw_9<0> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_9_1_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_9_0_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_9_1
+       FF fb_less_2d_gpu_i/pix_buf_draw_9_0
+   42. FF fb_less_2d_gpu_i/tile_mat_s<6><5><7>_3
+   43. FF fb_less_2d_gpu_i/tile_mat_s<6><5><7>_6
+   44. FF fb_less_2d_gpu_i/tile_mat_s<3><13><3>_3
+   45. FF fb_less_2d_gpu_i/tile_mat_s<6><5><7>_7
+   46. FF fb_less_2d_gpu_i/tile_mat_s<3><13><3>_6
+   47. FF fb_less_2d_gpu_i/tile_mat_s<3><13><3>_7
+   48. fb_less_2d_gpu_i/pix_buf_draw_19<14> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_19_15_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_19_14_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_19_15
+       FF fb_less_2d_gpu_i/pix_buf_draw_19_14
+   49. fb_less_2d_gpu_i/pix_buf_draw_19<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_19_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_19_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_19_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_19_22
+   50. fb_less_2d_gpu_i/pix_buf_draw_27<14> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_27_15_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_27_14_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_27_15
+       FF fb_less_2d_gpu_i/pix_buf_draw_27_14
+   51. fb_less_2d_gpu_i/pix_buf_draw_27<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_27_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_27_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_27_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_27_22
+   52. fb_less_2d_gpu_i/tx_s_10 (size: 4)
+       LUT fb_less_2d_gpu_i/Mmux_GND_8_o_tx_r[15]_mux_29_OUT11
+       LUT fb_less_2d_gpu_i/Mmux_GND_8_o_tx_r[15]_mux_29_OUT21
+       FF fb_less_2d_gpu_i/tx_s_10
+       FF fb_less_2d_gpu_i/tx_s_0
+   53. FF fb_less_2d_gpu_i/tile_mat_s<10><11><7>_0
+   54. FF fb_less_2d_gpu_i/tile_mat_s<10><11><7>_1
+   55. FF fb_less_2d_gpu_i/tile_mat_s<10><11><7>_2
+   56. FF fb_less_2d_gpu_i/tile_mat_s<10><11><7>_3
+   57. FF fb_less_2d_gpu_i/tile_mat_s<10><11><7>_6
+   58. FF fb_less_2d_gpu_i/tile_mat_s<10><11><7>_7
+   59. fb_less_2d_gpu_i/tx_s_12 (size: 4)
+       LUT fb_less_2d_gpu_i/Mmux_GND_8_o_tx_r[15]_mux_29_OUT31
+       LUT fb_less_2d_gpu_i/Mmux_GND_8_o_tx_r[15]_mux_29_OUT41
+       FF fb_less_2d_gpu_i/tx_s_12
+       FF fb_less_2d_gpu_i/tx_s_11
+   60. fb_less_2d_gpu_i/pix_buf_draw_28<14> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_28_15_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_28_14_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_28_15
+       FF fb_less_2d_gpu_i/pix_buf_draw_28_14
+   61. fb_less_2d_gpu_i/pix_buf_draw_28<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_28_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_28_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_28_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_28_22
+   62. fb_less_2d_gpu_i/pix_buf_draw_0<14> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_0_15_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_0_14_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_0_15
+       FF fb_less_2d_gpu_i/pix_buf_draw_0_14
+   63. fb_less_2d_gpu_i/pix_buf_draw_0<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_0_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_0_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_0_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_0_22
+   64. FF fb_less_2d_gpu_i/tile_mat_s<9><14><7>_6
+   65. fb_less_2d_gpu_i/tx_s_14 (size: 4)
+       LUT fb_less_2d_gpu_i/Mmux_GND_8_o_tx_r[15]_mux_29_OUT51
+       LUT fb_less_2d_gpu_i/Mmux_GND_8_o_tx_r[15]_mux_29_OUT61
+       FF fb_less_2d_gpu_i/tx_s_14
+       FF fb_less_2d_gpu_i/tx_s_13
+   66. FF fb_less_2d_gpu_i/tile_mat_s<9><14><7>_7
+   67. FF fb_less_2d_gpu_i/tile_mat_s<6><6><3>_3
+   68. fb_less_2d_gpu_i/pix_buf_draw_29<14> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_29_15_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_29_14_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_29_15
+       FF fb_less_2d_gpu_i/pix_buf_draw_29_14
+   69. FF fb_less_2d_gpu_i/tile_mat_s<6><6><3>_6
+   70. fb_less_2d_gpu_i/pix_buf_draw_29<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_29_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_29_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_29_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_29_22
+   71. FF fb_less_2d_gpu_i/tile_mat_s<6><6><3>_7
+   72. FF fb_less_2d_gpu_i/tile_mat_s<3><13><7>_6
+   73. fb_less_2d_gpu_i/pix_buf_draw_1<14> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_1_15_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_1_14_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_1_15
+       FF fb_less_2d_gpu_i/pix_buf_draw_1_14
+   74. FF fb_less_2d_gpu_i/tile_mat_s<3><13><7>_7
+   75. fb_less_2d_gpu_i/pix_buf_draw_1<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_1_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_1_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_1_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_1_22
+   76. fb_less_2d_gpu_i/tx_s_1 (size: 4)
+       LUT fb_less_2d_gpu_i/Mmux_GND_8_o_tx_r[15]_mux_29_OUT71
+       LUT fb_less_2d_gpu_i/Mmux_GND_8_o_tx_r[15]_mux_29_OUT81
+       FF fb_less_2d_gpu_i/tx_s_1
+       FF fb_less_2d_gpu_i/tx_s_15
+   77. fb_less_2d_gpu_i/ix_s_14 (size: 4)
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_ix_s[10]_Mux_47837_o11
+       LUT fb_less_2d_gpu_i/Mmux_current_state_s[4]_ix_s[14]_Mux_47829_o11
+       FF fb_less_2d_gpu_i/ix_s_14
+       FF fb_less_2d_gpu_i/ix_s_10
+   78. fb_less_2d_gpu_i/pix_buf_draw_10<6> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_10_7_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_10_6_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_10_7
+       FF fb_less_2d_gpu_i/pix_buf_draw_10_6
+   79. fb_less_2d_gpu_i/pix_buf_draw_11<2> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_11_3_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_11_2_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_11_3
+       FF fb_less_2d_gpu_i/pix_buf_draw_11_2
+   80. fb_less_2d_gpu_i/pix_buf_draw_2<14> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_2_15_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_2_14_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_2_15
+       FF fb_less_2d_gpu_i/pix_buf_draw_2_14
+   81. fb_less_2d_gpu_i/pix_buf_draw_2<22> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_2_23_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_2_22_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_2_23
+       FF fb_less_2d_gpu_i/pix_buf_draw_2_22
+   82. FF fb_less_2d_gpu_i/tile_mat_s<10><12><3>_0
+   83. FF fb_less_2d_gpu_i/tile_mat_s<10><12><3>_1
+   84. FF fb_less_2d_gpu_i/tile_mat_s<3><14><1>_4
+   85. FF fb_less_2d_gpu_i/tile_mat_s<10><12><3>_2
+   86. FF fb_less_2d_gpu_i/tile_mat_s<3><14><1>_5
+   87. FF fb_less_2d_gpu_i/tile_mat_s<10><12><3>_3
+   88. FF fb_less_2d_gpu_i/tile_mat_s<3><14><1>_6
+   89. FF fb_less_2d_gpu_i/tile_mat_s<10><12><3>_6
+   90. fb_less_2d_gpu_i/pix_buf_draw_10<16> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_10_17_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_10_16_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_10_17
+       FF fb_less_2d_gpu_i/pix_buf_draw_10_16
+   91. FF fb_less_2d_gpu_i/tile_mat_s<3><14><1>_7
+   92. FF fb_less_2d_gpu_i/tile_mat_s<10><12><3>_7
+   93. FF fb_less_2d_gpu_i/tile_mat_s<3><14><2>_0
+   94. fb_less_2d_gpu_i/pix_buf_draw_13<2> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_13_3_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_13_2_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_13_3
+       FF fb_less_2d_gpu_i/pix_buf_draw_13_2
+   95. FF fb_less_2d_gpu_i/tile_mat_s<3><14><2>_1
+   96. FF fb_less_2d_gpu_i/tile_mat_s<10><9><3>_6
+   97. fb_less_2d_gpu_i/pix_buf_draw_12<6> (size: 4)
+       LUT fb_less_2d_gpu_i/pix_buf_draw_12_7_dpot
+       LUT fb_less_2d_gpu_i/pix_buf_draw_12_6_dpot
+       FF fb_less_2d_gpu_i/pix_buf_draw_12_7
+       FF fb_less_2d_gpu_i/pix_buf_draw_12_6
+   98. FF fb_less_2d_gpu_i/tile_mat_s<3><14><2>_2
+   99. FF fb_less_2d_gpu_i/tile_mat_s<11><1><3>_6
+ERROR:Place:120 - There were not enough sites to place all selected components.
+   Some of these failures can be circumvented by using an alternate algorithm
+   (though it may take longer run time). If you would like to enable this
+   algorithm please set the environment variable XIL_PAR_ENABLE_LEGALIZER to 1
+   and try again 
+
+
+Phase 11.9  Local Placement Optimization (Checksum:9d609aa9) REAL time: 42 mins 35 secs 
+
+Total REAL time to Placer completion: 42 mins 35 secs 
+Total CPU  time to Placer completion: 42 mins 27 secs 
+ERROR:Pack:1654 - The timing-driven placement phase encountered an error.
 
 Mapping completed.
 See MAP report file "fb_less_2d_gpu_standalone_map.mrp" for details.
+Problem encountered during the packing phase.
+
+Design Summary
+--------------
+Number of errors   :   5
+Number of warnings :   0

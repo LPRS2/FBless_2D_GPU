@@ -132,8 +132,7 @@ architecture Behavioral of fb_less_2d_gpu is
 --	signal tile_mat_r : tile_mat;
 	
 	--Global state--
-	signal current_state_s : tState := IDLE;
-	signal next_state_s : tState := IDLE;
+	signal current_state_s : tState;
 	
 	--Indicates next state after wait valid date state--
 	signal valid_data_next_state_s : tState;
@@ -268,14 +267,7 @@ begin
 --   --                            GLOBAL                                             --
 --   -----------------------------------------------------------------------------------
 --		
-		--Global state register--
-		process(clk_i, rst_n_i) begin
-			if(rst_n_i = '0') then
-				current_state_s <= IDLE;
-			elsif(rising_edge(clk_i)) then
-				current_state_s <= next_state_s;
-			end if;
-		end process;
+
 		
 		--State after data valid stall state-- 
 		process(clk_i, rst_n_i) begin
@@ -297,82 +289,85 @@ begin
 									else valid_data_next_state_r;
 		
 		--Global state--
-		process(clk_i) begin--current_state_s, current_render_state_s, y_r, tx_r, tx_s, read_tile_mat, go_to_next_tile_line_s) begin
-		if(rising_edge(clk_i)) then
-			case(current_state_s) is
-				when IDLE =>
-					next_state_s <= CALC_TY;
-				when CALC_TY =>
-					if(read_tile_mat = 0) then
-						--New tile -> read tile mat element from memory--
-						next_state_s <= READ_UPPER;
-					else
-						next_state_s <= READ_INDEX;
-					end if;
-					
-				when READ_UPPER =>
-					next_state_s <= WAIT_VALID_DATA;--READ_LOWER;
-				when WAIT_VALID_DATA =>
-					next_state_s <= valid_data_next_state_r;
-				when READ_LOWER =>
-					next_state_s <= READ_INDEX;
-					
-				--Two phase for reading draw list--
-				-- 1st phase => get draw list index from tile mat elem --
-				-- 2nd phase => count and set memory address based on index form 1st phase--
-				when READ_INDEX =>
-					--End of tile list --
-					if(go_to_next_tile_line_s = "1") then
-						next_state_s <= WRITE_PIXEL;
-					else
-						next_state_s <= READ_INDEX2;
-					end if;
-				when READ_INDEX2 =>
-					next_state_s <= WAIT_VALID_DATA;
-				when READ_POSITION =>
-					next_state_s <= WAIT_VALID_DATA;
-				when READ_DIMENSIONS =>
-					next_state_s <= WAIT_VALID_DATA;
-				when READ_COLOR =>
-					next_state_s <= RENDER;
-				when RENDER =>
-					--Rendering is not finished => stall state--
-					if(ix_r = TILE_LINE+5) then
-						next_state_s <= CHECK_OPAQUE;
-					end if;
-					--Skip for now--
-				when CHECK_OPAQUE =>
-					-- TODO Also wait for pix_buf_draw_empty_and_ready.
-					next_state_s <= READ_INDEX;
-				when WRITE_PIXEL =>
-						if pix_buf_draw_empty_and_ready = '0' then
-							-- Stay in this state until transaction is done.
-							next_state_s <= WRITE_PIXEL;
+
+		process(clk_i, rst_n_i) begin
+			if(rst_n_i = '0') then
+				current_state_s <= IDLE;
+			elsif rising_edge(clk_i) then
+				case(current_state_s) is
+					when IDLE =>
+						current_state_s <= CALC_TY;
+					when CALC_TY =>
+						if(read_tile_mat = 0) then
+							--New tile -> read tile mat element from memory--
+							current_state_s <= READ_UPPER;
 						else
-									--if(xx_r = TILE_LINE-1) then
-							--Outer loop finished => algorithm finished--
-							if(y_r = HEIGHT-1 and tx_r = TILE_MAT_WIDTH-1) then
-								next_state_s <= FINISH;
-							--Break inner loop, continue outer loop--
-							elsif(tx_r = TILE_MAT_WIDTH-1) then
-								next_state_s <= INC_Y;
-							--Continue inner loop--
-							else
-								next_state_s <= INC_TX;
-							end if;
-									--	end if;
+							current_state_s <= READ_INDEX;
 						end if;
-				when INC_Y =>
-					next_state_s <= INC_TX;
-				when INC_TX =>
-					next_state_s <= CALC_TY;
-					
-				--STOP state--
-				--Algorithm is finished, draw pixels--
-				when others =>
-					next_state_s <= current_state_s;
-			end case;
-		end if;
+						
+					when READ_UPPER =>
+						current_state_s <= WAIT_VALID_DATA;--READ_LOWER;
+					when WAIT_VALID_DATA =>
+						current_state_s <= valid_data_next_state_r;
+					when READ_LOWER =>
+						current_state_s <= READ_INDEX;
+						
+					--Two phase for reading draw list--
+					-- 1st phase => get draw list index from tile mat elem --
+					-- 2nd phase => count and set memory address based on index form 1st phase--
+					when READ_INDEX =>
+						--End of tile list --
+						if(go_to_next_tile_line_s = "1") then
+							current_state_s <= WRITE_PIXEL;
+						else
+							current_state_s <= READ_INDEX2;
+						end if;
+					when READ_INDEX2 =>
+						current_state_s <= WAIT_VALID_DATA;
+					when READ_POSITION =>
+						current_state_s <= WAIT_VALID_DATA;
+					when READ_DIMENSIONS =>
+						current_state_s <= WAIT_VALID_DATA;
+					when READ_COLOR =>
+						current_state_s <= RENDER;
+					when RENDER =>
+						--Rendering is not finished => stall state--
+						if(ix_r = TILE_LINE+5) then
+							current_state_s <= CHECK_OPAQUE;
+						end if;
+						--Skip for now--
+					when CHECK_OPAQUE =>
+						-- TODO Also wait for pix_buf_draw_empty_and_ready.
+						current_state_s <= READ_INDEX;
+					when WRITE_PIXEL =>
+							if pix_buf_draw_empty_and_ready = '0' then
+								-- Stay in this state until transaction is done.
+								current_state_s <= WRITE_PIXEL;
+							else
+										--if(xx_r = TILE_LINE-1) then
+								--Outer loop finished => algorithm finished--
+								if(y_r = HEIGHT-1 and tx_r = TILE_MAT_WIDTH-1) then
+									current_state_s <= FINISH;
+								--Break inner loop, continue outer loop--
+								elsif(tx_r = TILE_MAT_WIDTH-1) then
+									current_state_s <= INC_Y;
+								--Continue inner loop--
+								else
+									current_state_s <= INC_TX;
+								end if;
+										--	end if;
+							end if;
+					when INC_Y =>
+						current_state_s <= INC_TX;
+					when INC_TX =>
+						current_state_s <= CALC_TY;
+						
+					--STOP state--
+					--Algorithm is finished, draw pixels--
+					when others =>
+						current_state_s <= current_state_s;
+				end case;
+			end if;
 		end process;
 --		
 --	

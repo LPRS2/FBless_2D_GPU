@@ -34,13 +34,13 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Generate Programming File</SelectedItem>
+         <SelectedItem>Place &amp; Route</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Generate Programming File</CurrentItem>
+      <CurrentItem>Place &amp; Route</CurrentItem>
    </ItemView>
    <ItemView guiview="File" >
       <ClosedNodes>
@@ -100,7 +100,7 @@
          <ClosedNode>/Unassigned User Library Modules/fb_less_2d_gpu_periph - IMP/AXI_LITE_IPIF_I - axi_lite_ipif - imp</ClosedNode>
          <ClosedNode>/Unassigned User Library Modules/fb_less_2d_gpu_periph - IMP/fb_less_2d_gpu_i - fb_less_2d_gpu - Behavioral</ClosedNode>
          <ClosedNode>/Unassigned User Library Modules/fb_less_2d_gpu_standalone - IMP/fb_less_2d_gpu_i - fb_less_2d_gpu - Behavioral</ClosedNode>
-         <ClosedNode>/Unassigned User Library Modules/fb_less_2d_gpu_standalone_tb - behavior/uut - fb_less_2d_gpu_standalone - IMP</ClosedNode>
+         <ClosedNode>/Unassigned User Library Modules/fb_less_2d_gpu_standalone_tb - behavior/uut - fb_less_2d_gpu_standalone - IMP/fb_less_2d_gpu_i - fb_less_2d_gpu - Behavioral</ClosedNode>
          <ClosedNode>/Unassigned User Library Modules/or_gate128 - imp</ClosedNode>
          <ClosedNode>/Unassigned User Library Modules/testbench - behavior</ClosedNode>
          <ClosedNode>/fb_less_2d_gpu_standalone - IMP D:|Sabac_i_Radenkovic|FBless_2D_GPU|pcores|fb_less_2d_gpu_periph_v1_00_a|hdl|vhdl|fb_less_2d_gpu_standalone.vhd</ClosedNode>
@@ -135,13 +135,13 @@
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem>Simulate Behavioral Model</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem>Simulate Behavioral Model</CurrentItem>
    </ItemView>
    <ItemView engineview="PostRouteSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>

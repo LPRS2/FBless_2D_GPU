@@ -18,7 +18,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="24" />
+   <WVObjectSize size="25" />
    <wvobject fp_name="/fb_less_2d_gpu_standalone_tb/clk_24mhz_i" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk_24mhz_i</obj_property>
       <obj_property name="ObjectShortName">clk_24mhz_i</obj_property>
@@ -99,6 +99,10 @@
       <obj_property name="ElementShortName">valid_render_row[8:0]</obj_property>
       <obj_property name="ObjectShortName">valid_render_row[8:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fb_less_2d_gpu_standalone_tb/uut/fb_less_2d_gpu_i/next_state_s" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">next_state_s</obj_property>
+      <obj_property name="ObjectShortName">next_state_s</obj_property>
    </wvobject>
    <wvobject fp_name="/fb_less_2d_gpu_standalone_tb/uut/fb_less_2d_gpu_i/current_state_s" type="other" db_ref_id="1">
       <obj_property name="ElementShortName">current_state_s</obj_property>
